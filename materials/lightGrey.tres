@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b85tiss0prsf7"]
+
+[ext_resource type="Texture2D" uid="uid://0g52mq41tsag" path="res://textures/lightGrey.png" id="1_hsr7v"]
+
+[resource]
+roughness_texture = ExtResource("1_hsr7v")

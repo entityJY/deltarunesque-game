@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cpenjhjvf4wo3"]
+[gd_scene format=3 uid="uid://dolvx4je86dxv"]
 
 [ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="1_2q6dc"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rd3vj"]
-size = Vector2(1920, 1080)
+[ext_resource type="Texture2D" uid="uid://cj55a2vblfih4" path="res://textures/plainWhite.png" id="1_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://uyl6w245sq1s" path="res://sprites/DEMOplayer.png" id="3_w8frs"]
+[ext_resource type="Script" uid="uid://c7pm8qfxrre85" path="res://scenes/modulateCanvas.gd" id="4_mx8sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
 size = Vector2(20, 750)
@@ -13,8 +13,11 @@ size = Vector2(750, 20)
 
 [node name="Level" type="Node2D" unique_id=2140894002]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1548270492]
+script = ExtResource("4_mx8sn")
+
 [node name="BG" type="Sprite2D" parent="." unique_id=465149635]
-texture = SubResource("PlaceholderTexture2D_rd3vj")
+texture = ExtResource("1_w7c3h")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=590509863]
 
@@ -53,3 +56,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_2q6dc")
 
 [node name="Player" parent="." unique_id=1841742184 instance=ExtResource("1_2q6dc")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1600527373]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_w8frs")
