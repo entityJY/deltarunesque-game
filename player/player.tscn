@@ -1,20 +1,51 @@
 [gd_scene format=3 uid="uid://qoag6cs0222u"]
 
-[ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://csqmcc5j0s2c0" path="res://player/scripts/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://c4gjjl0evywiv" path="res://player/assets/shield.png" id="2_rkbax"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
-radius = 30.0
+radius = 32.0
 
-[node name="Player" type="Node2D" unique_id=397257860 node_paths=PackedStringArray("hit_box_shape")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
+radius = 96.0
+
+[node name="Player" type="Node2D" unique_id=397257860 node_paths=PackedStringArray("hit_box", "outer_shield", "shield_sprite_array")]
 script = ExtResource("1_rkbax")
-dash_cooldown = 0.4
-hit_box_shape = NodePath("Area2D/CollisionShape2D")
+hit_box = NodePath("Hitbox")
+outer_shield = NodePath("OuterHitbox")
+shield_sprite_array = [NodePath("Shields/Shield0"), NodePath("Shields/Shield1"), NodePath("Shields/Shield2"), NodePath("Shields/Shield3"), NodePath("Shields/Shield4")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1124570379]
-texture = ExtResource("1_oul6g")
+[node name="Shields" type="Node2D" parent="." unique_id=656366786]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1720063706]
+[node name="Shield0" type="Sprite2D" parent="Shields" unique_id=1124570379]
+texture = ExtResource("2_rkbax")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=647341898]
+[node name="Shield1" type="Sprite2D" parent="Shields" unique_id=671344083]
+visible = false
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_rkbax")
+
+[node name="Shield2" type="Sprite2D" parent="Shields" unique_id=1434866264]
+visible = false
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_rkbax")
+
+[node name="Shield3" type="Sprite2D" parent="Shields" unique_id=43616502]
+visible = false
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_rkbax")
+
+[node name="Shield4" type="Sprite2D" parent="Shields" unique_id=2044662691]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("2_rkbax")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1720063706]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=647341898]
 shape = SubResource("CircleShape2D_rkbax")
+
+[node name="OuterHitbox" type="Area2D" parent="." unique_id=1691501548]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OuterHitbox" unique_id=1160421124]
+shape = SubResource("CircleShape2D_g1dw6")

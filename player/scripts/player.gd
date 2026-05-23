@@ -1,11 +1,17 @@
 extends Node2D
 class_name Player
 
+
 enum dash_states {
 	DASH_AVAILABLE,
 	DASHING,
 	DASH_COOLDOWN,
 }
+
+# 32 48  64  80  96
+# 1  1.5 2   2.5 3
+# 96 112 128 144 160
+# 1	 1/6 2/6 3/6 4/6 
 
 @export_group("Movement Settings")
 @export var move_speed: float = 700.0
@@ -18,7 +24,12 @@ var last_direction: Vector2
 var dash_state: dash_states = dash_states.DASH_AVAILABLE
 
 @export_group("Components")
-@export var hit_box_shape: CollisionShape2D
+@export var hit_box: Area2D
+@export var outer_shield: Area2D
+@export var shield_sprite_array: Array[Sprite2D]
+
+var shield_level: int = 4: set = set_shield_level
+
 
 func _ready() -> void:
 	dash_speed = dash_distance/dash_time
@@ -26,9 +37,13 @@ func _ready() -> void:
 	dash_timer = Timer.new()
 	dash_timer.one_shot = true
 	add_child(dash_timer)
+	set_shield_level(shield_level)
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		shield_level -= 1
 	movement(delta)
+
 
 func movement(delta: float) -> void:
 	if dash_state == dash_states.DASHING:
@@ -64,3 +79,20 @@ func enable_dash() -> void:
 	dash_timer.start()
 	await dash_timer.timeout
 	dash_state = dash_states.DASH_AVAILABLE
+
+
+func set_shield_level(level: int) -> void:
+	if level < 0 or level > 4:
+		return
+	
+	shield_level = level
+	for i in range(5):
+		if i == level:
+			shield_sprite_array[i].visible = true
+		else:
+			shield_sprite_array[i].visible = false
+	
+	var scale_hit_box = func (i): 
+		hit_box.scale = Vector2.ONE * (1 + float(i) / 2)
+		outer_shield.scale = Vector2.ONE * (1 + float(i) / 6)
+	scale_hit_box.call_deferred(level)
