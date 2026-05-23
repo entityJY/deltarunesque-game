@@ -7,10 +7,12 @@ var parent
 @export var direction : Vector2 = Vector2(scale.x, 0)
 @export var sprite : Sprite2D
 @export var spriteImage : Texture2D
+var grazed = false
 var move = true
 
 ## Initializes image for bullet and rotation of bullet
 func _ready() -> void:
+	area_entered.connect(_on_area_entered)
 	if spriteImage != null:
 		if sprite == null:
 			sprite = $BulletSprite
@@ -28,10 +30,11 @@ func _physics_process(delta: float) -> void:
 		position += direction * speed * delta
 
 ## Deals damage upon impact
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_entered(area: Node2D) -> void:
 	# Hurt enemy here
-	if body is Player:
-		body.hurt(damage)
+	if area.get_parent() is Player:
+		print("ow")
+		area.get_parent().hurt(damage)
 	disable()
 
 ## Disable the bullet so you can't double-dip on damages

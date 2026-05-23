@@ -13,8 +13,8 @@ script = ExtResource("1_sxnja")
 sprite = NodePath("BulletSprite")
 spriteImage = ExtResource("2_qmlwd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
-shape = SubResource("CircleShape2D_p3kk6")
-
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
 texture = ExtResource("2_u1xu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
+shape = SubResource("CircleShape2D_p3kk6")

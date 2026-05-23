@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func hurt(damage: int) -> void:
+	if damage > 0:
+		damage *= -1
 	shield_level += damage
 
 
@@ -101,3 +103,8 @@ func set_shield_level(level: int) -> void:
 		collision_shape.shape.radius = 32 + 12 * i
 		outer_shield.shape.radius = 48 + 15 * i
 	scale_hit_box.call_deferred(level)
+
+func _on_outer_hitbox_area_exited(area: Area2D) -> void:
+	if area is Projectile and !area.grazed:
+		area.grazed = true
+		# increment points here

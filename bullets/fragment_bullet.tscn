@@ -17,8 +17,8 @@ freeze_duration = 2.0
 sprite = NodePath("BulletSprite")
 spriteImage = ExtResource("2_p3kk6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
-shape = SubResource("CircleShape2D_p3kk6")
-
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
 texture = ExtResource("2_dsqjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
+shape = SubResource("CircleShape2D_p3kk6")

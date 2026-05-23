@@ -58,8 +58,9 @@ shape = SubResource("CircleShape2D_rkbax")
 shape = SubResource("CircleShape2D_yw30f")
 
 [node name="OuterHitbox" type="Area2D" parent="." unique_id=1691501548]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
 
 [node name="Collision" type="CollisionShape2D" parent="OuterHitbox" unique_id=1160421124]
 shape = SubResource("CircleShape2D_g1dw6")
+
+[connection signal="area_exited" from="OuterHitbox" to="." method="_on_outer_hitbox_area_exited"]
