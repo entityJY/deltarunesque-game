@@ -95,6 +95,6 @@ func set_shield_level(level: int) -> void:
 	
 	var scale_hit_box = func (i):
 		hit_box.shape.radius = 16 + 9 * i
-		outer_shield.shape.radius = 32 + 12 * i
-		collision_shape.shape.radius = 48 + 15 * i
+		collision_shape.shape.radius = 32 + 12 * i
+		outer_shield.shape.radius = 48 + 15 * i
 	scale_hit_box.call_deferred(level)

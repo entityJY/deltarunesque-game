@@ -6,15 +6,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 16.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
-radius = 48.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
 radius = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
+radius = 48.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1841742184 node_paths=PackedStringArray("hit_box", "outer_shield", "collision_shape", "shield_sprite_array")]
-collision_layer = 2
-collision_mask = 5
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_rkbax")
 hit_box = NodePath("Hitbox/InnerCollision")
 outer_shield = NodePath("OuterHitbox/Collision")
@@ -49,15 +49,17 @@ texture = ExtResource("2_rkbax")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1720063706]
 collision_layer = 2
+collision_mask = 0
 
 [node name="InnerCollision" type="CollisionShape2D" parent="Hitbox" unique_id=647341898]
 shape = SubResource("CircleShape2D_rkbax")
 
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=1572841583]
+shape = SubResource("CircleShape2D_yw30f")
+
 [node name="OuterHitbox" type="Area2D" parent="." unique_id=1691501548]
 collision_layer = 2
+collision_mask = 0
 
 [node name="Collision" type="CollisionShape2D" parent="OuterHitbox" unique_id=1160421124]
 shape = SubResource("CircleShape2D_g1dw6")
-
-[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=1572841583]
-shape = SubResource("CircleShape2D_yw30f")
