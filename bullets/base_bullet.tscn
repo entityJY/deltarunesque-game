@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://bkjk1j4x3bk8i"]
 
 [ext_resource type="Script" uid="uid://da525eia0ajd8" path="res://bullets/projectile.gd" id="1_sxnja"]
-[ext_resource type="Texture2D" uid="uid://cy2yphg5xtpbl" path="res://sprites/DEMOcircle.png" id="2_sxnja"]
+[ext_resource type="Texture2D" uid="uid://cy2yphg5xtpbl" path="res://sprites/DEMOcircle.png" id="2_qmlwd"]
+[ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="2_u1xu0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qmlwd"]
 radius = 77.52419
 
-[node name="BaseBullet" type="Area2D" unique_id=1312338901]
-collision_layer = 2
+[node name="BaseBullet" type="Area2D" unique_id=1312338901 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_sxnja")
+sprite = NodePath("BulletSprite")
+spriteImage = ExtResource("2_qmlwd")
 
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1763049284]
 scale = Vector2(0.1, 0.1)
