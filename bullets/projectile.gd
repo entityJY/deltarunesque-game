@@ -11,7 +11,10 @@ var move = true
 
 ## Initializes image for bullet and rotation of bullet
 func _ready() -> void:
-	sprite.texture = spriteImage
+	if spriteImage != null:
+		if sprite == null:
+			sprite = $BulletSprite
+		sprite.texture = spriteImage
 	rotation= direction.angle()
 	initBullet()
 	
