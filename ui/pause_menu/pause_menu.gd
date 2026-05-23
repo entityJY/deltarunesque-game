@@ -2,6 +2,7 @@ extends PanelContainer
 class_name PauseMenu
 
 
+@export_file var play_scene: String
 var paused: bool = false
 
 signal restart_level
@@ -21,7 +22,8 @@ func _process(_delta: float) -> void:
 			get_tree().paused = false
 
 func _on_home_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().paused = false
+	get_tree().change_scene_to_file(play_scene)
 
 func _on_continue_pressed() -> void:
 	print("continued pressed")
@@ -29,4 +31,6 @@ func _on_continue_pressed() -> void:
 	get_tree().paused = false
 
 func _on_restart_pressed() -> void:
+	get_tree().paused = false
+	hide()
 	restart_level.emit()
