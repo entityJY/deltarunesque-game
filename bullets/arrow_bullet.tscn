@@ -8,7 +8,7 @@
 radius = 77.52419
 
 [node name="BaseBullet" type="Area2D" unique_id=1312338901 node_paths=PackedStringArray("sprite")]
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("2_4bp3c")
 sprite = NodePath("BulletSprite")
 spriteImage = ExtResource("2_n3txx")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cgbwo886c6rrb"]
+
+[ext_resource type="Script" uid="uid://c2dmg17xg0xdm" path="res://bullets/reversal_bullet.gd" id="1_xvmn5"]
+[ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="3_wrs1u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
+radius = 77.52419
+
+[node name="AccelerationBullet" type="Area2D" unique_id=459781445 node_paths=PackedStringArray("sprite")]
+collision_mask = 10
+script = ExtResource("1_xvmn5")
+speed = 1000.0
+sprite = NodePath("BulletSprite")
+
+[node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
+texture = ExtResource("3_wrs1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
+shape = SubResource("CircleShape2D_p3kk6")

@@ -13,6 +13,8 @@ var move = true
 ## Initializes image for bullet and rotation of bullet
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
+	body_entered.connect(_on_body_entered)
+
 	if spriteImage != null:
 		if sprite == null:
 			sprite = $BulletSprite
@@ -45,3 +47,6 @@ func disable()-> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite,"modulate:a", 0, 0.2)
 	queue_free()
+
+func _on_body_entered(_body : Node2D):
+	disable()
