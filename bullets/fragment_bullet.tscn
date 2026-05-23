@@ -9,6 +9,7 @@ radius = 77.52419
 
 [node name="FragmentBullet" type="Area2D" unique_id=459781445 node_paths=PackedStringArray("sprite")]
 position = Vector2(524, 332)
+collision_mask = 2
 script = ExtResource("1_lb2yc")
 timeout_duration = 1.0
 fragment_count = 5

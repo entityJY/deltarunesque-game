@@ -2,9 +2,9 @@ extends Area2D
 class_name Projectile
 
 var parent
-@export var speed = 200
-@export var damage = 1
-@export var direction = Vector2(scale.x, 0)
+@export var speed : float = 200
+@export var damage : int = 1
+@export var direction : Vector2 = Vector2(scale.x, 0)
 @export var sprite : Sprite2D
 @export var spriteImage : Texture2D
 var move = true
@@ -29,8 +29,10 @@ func _physics_process(delta: float) -> void:
 
 ## Deals damage upon impact
 func _on_body_entered(body: Node2D) -> void:
-		# Hurt enemy here
-		disable()
+	# Hurt enemy here
+	if body is Player:
+		body.hurt(damage)
+	disable()
 
 ## Disable the bullet so you can't double-dip on damages
 func disable()-> void:
