@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sqsug71ev2bf"]
 
 [ext_resource type="Script" uid="uid://cpyhxb78xtbba" path="res://bullets/laser.gd" id="1_hggxy"]
+[ext_resource type="Texture2D" uid="uid://dwge7ikg6ve4x" path="res://bullets/laser_sprite.png" id="2_42eio"]
 [ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="2_jg26s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42eio"]
@@ -14,7 +15,7 @@ script = ExtResource("1_hggxy")
 shape = SubResource("RectangleShape2D_42eio")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=681724910]
-texture = ExtResource("2_jg26s")
+texture = ExtResource("2_42eio")
 
 [node name="WarningSprite" type="Sprite2D" parent="." unique_id=1266265909]
 scale = Vector2(0.4375, 0.4375)

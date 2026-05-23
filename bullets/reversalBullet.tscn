@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgbwo886c6rrb"]
 
 [ext_resource type="Script" uid="uid://c2dmg17xg0xdm" path="res://bullets/reversal_bullet.gd" id="1_xvmn5"]
-[ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="3_wrs1u"]
+[ext_resource type="Texture2D" uid="uid://ceh24q6e8rtv8" path="res://bullets/square_bullet.png" id="2_xvmn5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
 radius = 77.52419
@@ -13,7 +13,7 @@ speed = 1000.0
 sprite = NodePath("BulletSprite")
 
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
-texture = ExtResource("3_wrs1u")
+texture = ExtResource("2_xvmn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
 shape = SubResource("CircleShape2D_p3kk6")
