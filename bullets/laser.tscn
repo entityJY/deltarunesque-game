@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://sqsug71ev2bf"]
+
+[ext_resource type="Script" uid="uid://cpyhxb78xtbba" path="res://bullets/laser.gd" id="1_hggxy"]
+[ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="2_jg26s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42eio"]
+size = Vector2(123, 123)
+
+[node name="Laser" type="Area2D" unique_id=1508267711]
+collision_mask = 2
+script = ExtResource("1_hggxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1485248790]
+shape = SubResource("RectangleShape2D_42eio")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=681724910]
+texture = ExtResource("2_jg26s")
+
+[node name="WarningSprite" type="Sprite2D" parent="." unique_id=1266265909]
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("2_jg26s")

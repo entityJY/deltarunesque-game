@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bgsbsq4w5tncb"]
 
+[ext_resource type="PackedScene" uid="uid://sqsug71ev2bf" path="res://bullets/laser.tscn" id="1_cdmqh"]
 [ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="1_favqt"]
 [ext_resource type="PackedScene" uid="uid://bkjk1j4x3bk8i" path="res://bullets/base_bullet.tscn" id="2_76u7y"]
 [ext_resource type="PackedScene" uid="uid://cm75ij6o6mw0p" path="res://bullets/bouncyBullet.tscn" id="2_o453r"]
@@ -69,6 +70,9 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4" unique_id=132926999]
 shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="Laser" parent="Walls" unique_id=1508267711 instance=ExtResource("1_cdmqh")]
+position = Vector2(159, -160)
 
 [node name="Player" parent="." unique_id=1841742184 instance=ExtResource("1_favqt")]
 

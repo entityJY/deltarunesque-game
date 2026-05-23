@@ -105,6 +105,6 @@ func set_shield_level(level: int) -> void:
 	scale_hit_box.call_deferred(level)
 
 func _on_outer_hitbox_area_exited(area: Area2D) -> void:
-	if area is Projectile and !area.grazed:
+	if (area is Projectile or area is Laser) and !area.grazed:
 		area.grazed = true
 		# increment points here
