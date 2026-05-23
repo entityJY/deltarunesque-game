@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Deltarunesque Game"
+config/name="Untitled Onion Game"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
