@@ -48,6 +48,9 @@ func _physics_process(delta: float) -> void:
 	movement(delta)
 	move_and_slide()
 
+func hurt(damage: int) -> void:
+	shield_level += damage
+
 
 func movement(_delta: float) -> void:
 	if dash_state == dash_states.DASHING:
