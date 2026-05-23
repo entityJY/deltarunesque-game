@@ -2,8 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="1_2q6dc"]
 [ext_resource type="Texture2D" uid="uid://cj55a2vblfih4" path="res://textures/plainWhite.png" id="1_w7c3h"]
+[ext_resource type="AudioStream" uid="uid://bpyllf85gkha5" path="res://tracks/Red.mp3" id="2_8c41q"]
+[ext_resource type="AudioStream" uid="uid://bmbxwkc535w6f" path="res://tracks/Orange.mp3" id="3_olg7q"]
 [ext_resource type="Texture2D" uid="uid://uyl6w245sq1s" path="res://sprites/DEMOplayer.png" id="3_w8frs"]
 [ext_resource type="Script" uid="uid://c7pm8qfxrre85" path="res://scenes/modulateCanvas.gd" id="4_mx8sn"]
+[ext_resource type="AudioStream" uid="uid://dqp6amqpfn041" path="res://tracks/Yellow.mp3" id="4_t1rx8"]
+[ext_resource type="AudioStream" uid="uid://dgtn6guu7a0ra" path="res://tracks/Green.mp3" id="5_8iemx"]
+[ext_resource type="AudioStream" uid="uid://cy71luifsespf" path="res://tracks/Blue.mp3" id="6_64w2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
 size = Vector2(20, 750)
@@ -15,6 +20,8 @@ size = Vector2(750, 20)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1548270492]
 script = ExtResource("4_mx8sn")
+tracks = Array[AudioStream]([ExtResource("2_8c41q"), ExtResource("3_olg7q"), ExtResource("4_t1rx8"), ExtResource("5_8iemx"), ExtResource("6_64w2a")])
+fadeTime = 3.0
 
 [node name="BG" type="Sprite2D" parent="." unique_id=465149635]
 texture = ExtResource("1_w7c3h")
@@ -60,3 +67,7 @@ shape = SubResource("RectangleShape2D_2q6dc")
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1600527373]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_w8frs")
+
+[node name="AudioPlayer1" type="AudioStreamPlayer2D" parent="." unique_id=890367423]
+
+[node name="AudioPlayer2" type="AudioStreamPlayer2D" parent="." unique_id=630785168]
