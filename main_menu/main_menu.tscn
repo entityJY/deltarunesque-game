@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b7cldscw5umdk"]
+
+[ext_resource type="Script" uid="uid://d1uei46k34nr" path="res://main_menu/main_menu.gd" id="1_oa53l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1h4yd"]
+size = Vector2(1920, 1080)
+
+[node name="MainMenu" type="Node2D" unique_id=484403610]
+script = ExtResource("1_oa53l")
+play_scene = "uid://bgsbsq4w5tncb"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1424625685]
+texture = SubResource("PlaceholderTexture2D_1h4yd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1669019951]
+
+[node name="Play" type="Button" parent="." unique_id=688258371]
+custom_minimum_size = Vector2(512, 0)
+offset_left = 354.0
+offset_top = -215.0
+offset_right = 866.0
+offset_bottom = -119.0
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="Settings" type="Button" parent="." unique_id=622394294]
+custom_minimum_size = Vector2(448, 0)
+offset_left = 417.0
+offset_top = -84.0
+offset_right = 865.0
+offset_bottom = 1.0
+theme_override_font_sizes/font_size = 56
+text = "Settings
+"
+
+[node name="Credits" type="Button" parent="." unique_id=364323905]
+custom_minimum_size = Vector2(384, 0)
+offset_left = 483.0
+offset_top = 32.0
+offset_right = 867.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 56
+text = "Credits
+
+"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

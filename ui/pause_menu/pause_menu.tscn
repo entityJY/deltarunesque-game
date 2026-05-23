@@ -18,6 +18,7 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mnjdh")
+play_scene = "uid://b7cldscw5umdk"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=506577662]
 layout_mode = 2
