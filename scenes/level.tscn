@@ -63,3 +63,4 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_w8frs")
 
 [node name="PauseMenu" parent="." unique_id=1300781280 instance=ExtResource("5_ppgk2")]
+visible = false
