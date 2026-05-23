@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://kowmx5k8pbq4"]
 
 [ext_resource type="PackedScene" uid="uid://bkjk1j4x3bk8i" path="res://bullets/base_bullet.tscn" id="1_fv18g"]
+[ext_resource type="Script" uid="uid://b7608swl4bd5t" path="res://arrowProj.gd" id="2_4bp3c"]
 [ext_resource type="Texture2D" uid="uid://be6bgt5m3leil" path="res://sprites/DEMOarrow.png" id="2_5ssne"]
 
 [node name="BaseBullet" unique_id=1312338901 instance=ExtResource("1_fv18g")]
+script = ExtResource("2_4bp3c")
+spin = 0.1
 
 [node name="BulletSprite" parent="." index="0" unique_id=1763049284]
 position = Vector2(-3.9999998, 0)
