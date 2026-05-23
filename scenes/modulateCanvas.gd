@@ -1,13 +1,11 @@
 extends CanvasModulate
 
-var hue: = 1.0
-var saturation: = 1.0
-var brightness: = 1.0
-var alpha: = 1.0
-var stage: = 1
+var stage := 0
+var tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
+	color = Color.RED;
 	pass # Replace with function body.
 
 
@@ -16,27 +14,31 @@ func _process(delta: float) -> void:
 	var targetColor
 	
 	if Input.is_action_just_pressed("nextStage"):
-		var prevStage = stage;
+		print("nextStage pressed")
+		var prevStage = stage
 		while stage == prevStage:	
-			stage = randi_range(1, 5)
+			stage = randi_range(0, 4)
 		
-	match stage:
-		1:
-			targetColor = Color.RED
-			
-		2:
-			targetColor = Color.DARK_ORANGE
-			
-		3: 
-			targetColor = Color.YELLOW
-			
-		4:
-			targetColor = Color.LIME_GREEN
-			
-		5: 
-			targetColor = Color.BLUE
-			
-	var tween = create_tween()
-	tween.tween_property(self, "color", targetColor, 2.0)
+		match stage:
+			0:
+				targetColor = Color.RED
+				
+			1:
+				targetColor = Color.DARK_ORANGE
+				
+			2: 
+				targetColor = Color.YELLOW
+				
+			3:
+				targetColor = Color.LIME_GREEN
+				
+			4: 
+				targetColor = Color.BLUE
+				
+		if tween:
+			tween.kill()
+				
+		tween = create_tween()
+		tween.tween_property(self, "color", targetColor, 2.0)
 			
 	pass
