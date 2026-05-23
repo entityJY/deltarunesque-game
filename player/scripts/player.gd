@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 class_name Player
 
 
@@ -12,6 +12,8 @@ enum dash_states {
 # 1  1.5 2   2.5 3
 # 96 112 128 144 160
 # 1	 1/6 2/6 3/6 4/6 
+# 64 80  96  112 128
+# 1  1.25
 
 @export_group("Movement Settings")
 @export var move_speed: float = 700.0
@@ -26,6 +28,7 @@ var dash_state: dash_states = dash_states.DASH_AVAILABLE
 @export_group("Components")
 @export var hit_box: Area2D
 @export var outer_shield: Area2D
+@export var collision_shape: CollisionShape2D
 @export var shield_sprite_array: Array[Sprite2D]
 
 var shield_level: int = 4: set = set_shield_level
@@ -43,12 +46,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		shield_level -= 1
 	movement(delta)
+	move_and_slide()
 
 
-func movement(delta: float) -> void:
+func movement(_delta: float) -> void:
 	if dash_state == dash_states.DASHING:
-		position.x += last_direction.x * dash_speed * delta
-		position.y += last_direction.y * dash_speed * delta
+		velocity = last_direction * dash_speed
 		return
 	
 	if Input.is_action_just_pressed("dash") and dash_state == dash_states.DASH_AVAILABLE:
@@ -63,9 +66,7 @@ func movement(delta: float) -> void:
 	direction = direction.normalized()
 	last_direction = direction
 
-	# move character
-	position.x += direction.x * move_speed * delta
-	position.y += direction.y * move_speed * delta
+	velocity = direction * move_speed
 
 func stop_dash() -> void:
 	dash_timer.wait_time = dash_time
@@ -95,4 +96,5 @@ func set_shield_level(level: int) -> void:
 	var scale_hit_box = func (i): 
 		hit_box.scale = Vector2.ONE * (1 + float(i) / 2)
 		outer_shield.scale = Vector2.ONE * (1 + float(i) / 6)
+		collision_shape.scale = Vector2.ONE * (1 + float(i) / 4)
 	scale_hit_box.call_deferred(level)

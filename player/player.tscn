@@ -9,10 +9,14 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 96.0
 
-[node name="Player" type="Node2D" unique_id=397257860 node_paths=PackedStringArray("hit_box", "outer_shield", "shield_sprite_array")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
+radius = 64.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1841742184 node_paths=PackedStringArray("hit_box", "outer_shield", "collision_shape", "shield_sprite_array")]
 script = ExtResource("1_rkbax")
 hit_box = NodePath("Hitbox")
 outer_shield = NodePath("OuterHitbox")
+collision_shape = NodePath("CollisionShape2D")
 shield_sprite_array = [NodePath("Shields/Shield0"), NodePath("Shields/Shield1"), NodePath("Shields/Shield2"), NodePath("Shields/Shield3"), NodePath("Shields/Shield4")]
 
 [node name="Shields" type="Node2D" parent="." unique_id=656366786]
@@ -49,3 +53,6 @@ shape = SubResource("CircleShape2D_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OuterHitbox" unique_id=1160421124]
 shape = SubResource("CircleShape2D_g1dw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1572841583]
+shape = SubResource("CircleShape2D_yw30f")
