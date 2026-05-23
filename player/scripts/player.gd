@@ -8,12 +8,12 @@ enum dash_states {
 	DASH_COOLDOWN,
 }
 
-# 32 48  64  80  96
-# 1  1.5 2   2.5 3
-# 96 112 128 144 160
-# 1	 1/6 2/6 3/6 4/6 
-# 64 80  96  112 128
-# 1  1.25
+# 16 25 34 43 52
+# 
+# 32 44 56 68 80
+# 
+# 48 63 78 93 108
+# 
 
 @export_group("Movement Settings")
 @export var move_speed: float = 700.0
@@ -26,8 +26,8 @@ var last_direction: Vector2
 var dash_state: dash_states = dash_states.DASH_AVAILABLE
 
 @export_group("Components")
-@export var hit_box: Area2D
-@export var outer_shield: Area2D
+@export var hit_box: CollisionShape2D
+@export var outer_shield: CollisionShape2D
 @export var collision_shape: CollisionShape2D
 @export var shield_sprite_array: Array[Sprite2D]
 
@@ -93,8 +93,8 @@ func set_shield_level(level: int) -> void:
 		else:
 			shield_sprite_array[i].visible = false
 	
-	var scale_hit_box = func (i): 
-		hit_box.scale = Vector2.ONE * (1 + float(i) / 2)
-		outer_shield.scale = Vector2.ONE * (1 + float(i) / 6)
-		collision_shape.scale = Vector2.ONE * (1 + float(i) / 4)
+	var scale_hit_box = func (i):
+		hit_box.shape.radius = 16 + 9 * i
+		outer_shield.shape.radius = 32 + 12 * i
+		collision_shape.shape.radius = 48 + 15 * i
 	scale_hit_box.call_deferred(level)
