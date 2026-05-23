@@ -69,7 +69,7 @@ _data = {
 
 [node name="MainMenu" type="Node2D" unique_id=484403610 node_paths=PackedStringArray("animation_player", "escape_menu_button")]
 script = ExtResource("1_oa53l")
-play_scene = "uid://bgsbsq4w5tncb"
+play_scene = "uid://dolvx4je86dxv"
 animation_player = NodePath("AnimationPlayer")
 escape_menu_button = NodePath("EscapeMenuButton")
 

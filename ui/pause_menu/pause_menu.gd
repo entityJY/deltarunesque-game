@@ -26,7 +26,7 @@ func _on_home_pressed() -> void:
 	get_tree().change_scene_to_file(play_scene)
 
 func _on_continue_pressed() -> void:
-	print("continued pressed")
+	paused = false
 	hide()
 	get_tree().paused = false
 
