@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://d3ad7gej1b83h"]
 
 [ext_resource type="Script" uid="uid://bljsapk5gmblr" path="res://bullets/frag1.gd" id="1_lb2yc"]
-[ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="2_dsqjy"]
-[ext_resource type="Texture2D" uid="uid://cy2yphg5xtpbl" path="res://sprites/DEMOcircle.png" id="2_p3kk6"]
+[ext_resource type="Texture2D" uid="uid://4sox8p4tfku6" path="res://bullets/6_pointed_star_bullet.png" id="2_lb2yc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
 radius = 77.52419
@@ -15,10 +14,9 @@ timeout_duration = 1.0
 fragment_count = 5
 freeze_duration = 2.0
 sprite = NodePath("BulletSprite")
-spriteImage = ExtResource("2_p3kk6")
 
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
-texture = ExtResource("2_dsqjy")
+texture = ExtResource("2_lb2yc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
 shape = SubResource("CircleShape2D_p3kk6")

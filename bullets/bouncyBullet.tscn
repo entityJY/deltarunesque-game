@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cm75ij6o6mw0p"]
 
 [ext_resource type="Script" uid="uid://clb1chf3jq38k" path="res://bullets/bouncy_bullet.gd" id="1_neyq0"]
-[ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="2_72lec"]
+[ext_resource type="Texture2D" uid="uid://b4k5nxxn88qjm" path="res://bullets/circle_bullet2.png" id="2_neyq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
 radius = 77.52419
@@ -11,7 +11,7 @@ collision_mask = 10
 script = ExtResource("1_neyq0")
 
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
-texture = ExtResource("2_72lec")
+texture = ExtResource("2_neyq0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
 shape = SubResource("CircleShape2D_p3kk6")

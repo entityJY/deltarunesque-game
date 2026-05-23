@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://kowmx5k8pbq4"]
 
 [ext_resource type="Script" uid="uid://b7608swl4bd5t" path="res://bullets/arrowProj.gd" id="2_4bp3c"]
-[ext_resource type="Texture2D" uid="uid://be6bgt5m3leil" path="res://sprites/DEMOarrow.png" id="2_5ssne"]
-[ext_resource type="Texture2D" uid="uid://cy2yphg5xtpbl" path="res://sprites/DEMOcircle.png" id="2_n3txx"]
+[ext_resource type="Texture2D" uid="uid://dqucx8p2v81k0" path="res://bullets/arrow_bullet.png" id="2_5ssne"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
 radius = 77.52419
@@ -11,7 +10,6 @@ radius = 77.52419
 collision_mask = 10
 script = ExtResource("2_4bp3c")
 sprite = NodePath("BulletSprite")
-spriteImage = ExtResource("2_n3txx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
 scale = Vector2(0.075, 0.075)
