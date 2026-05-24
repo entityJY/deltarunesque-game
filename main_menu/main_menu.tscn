@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d1uei46k34nr" path="res://main_menu/main_menu.gd" id="1_oa53l"]
 [ext_resource type="Texture2D" uid="uid://ccc23551gfeci" path="res://main_menu/main_menu_assets/play_normal.png" id="2_3f7m4"]
 [ext_resource type="Texture2D" uid="uid://clthxf52fq4qe" path="res://main_menu/main_menu_assets/credits_box.png" id="2_3shxk"]
-[ext_resource type="Script" uid="uid://1i0ws5q2kk87" path="res://main_menu/settings.gd" id="2_d3a7t"]
 [ext_resource type="Texture2D" uid="uid://cbkn312di4u66" path="res://main_menu/main_menu_assets/play_pressed.png" id="3_6tl50"]
 [ext_resource type="Texture2D" uid="uid://bcidosgle7omm" path="res://main_menu/main_menu_assets/play_hover.png" id="4_6tl50"]
 [ext_resource type="Texture2D" uid="uid://cqd58uorqvv0b" path="res://main_menu/main_menu_assets/settings_normal.png" id="5_6at21"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://brhrgi6bwvc2c" path="res://main_menu/main_menu_assets/credits_normal.png" id="8_mvfl2"]
 [ext_resource type="Texture2D" uid="uid://b4afa3umbdxow" path="res://main_menu/main_menu_assets/credits_pressed.png" id="9_qvn4f"]
 [ext_resource type="Texture2D" uid="uid://5jmfh7ortwyr" path="res://main_menu/main_menu_assets/credits_hover.png" id="10_qvn4f"]
+[ext_resource type="PackedScene" uid="uid://7yafxd8dxjin" path="res://ui/settings/settings_menu.tscn" id="12_qvn4f"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1h4yd"]
 size = Vector2(1920, 1080)
@@ -272,89 +272,9 @@ layout_mode = 2
 text = "                     Credits
                         blah"
 
-[node name="SettingsPanel" type="PanelContainer" parent="." unique_id=107956480 node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "ui_slider", "button_sfx", "animation_player")]
-custom_minimum_size = Vector2(960, 540)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -1290.0
-offset_right = 480.0
-offset_bottom = -662.9999
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_d3a7t")
-master_slider = NodePath("MarginContainer/VBoxContainer/MasterSlider")
-music_slider = NodePath("MarginContainer/VBoxContainer/MusicSlider")
-sfx_slider = NodePath("MarginContainer/VBoxContainer/SFXSlider")
-ui_slider = NodePath("MarginContainer/VBoxContainer/UISlider")
+[node name="SettingsPanel" parent="." unique_id=25184077 node_paths=PackedStringArray("button_sfx", "animation_player") instance=ExtResource("12_qvn4f")]
 button_sfx = NodePath("../ButtonSFX")
 animation_player = NodePath("../AnimationPlayer")
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsPanel" unique_id=1168214362]
-layout_mode = 2
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel/MarginContainer" unique_id=795182724]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=587269915]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Settings"
-
-[node name="Master" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=439019852]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Master Volume"
-
-[node name="MasterSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=1870714464]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-
-[node name="Music" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=1868490734]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Music"
-
-[node name="MusicSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=833544442]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-
-[node name="SFX" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=454775324]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "SFX"
-
-[node name="SFXSlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=1499132105]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-
-[node name="UI" type="Label" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=191160021]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "UI"
-
-[node name="UISlider" type="HSlider" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=226603448]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
-
-[node name="LowerButtons" type="HBoxContainer" parent="SettingsPanel/MarginContainer/VBoxContainer" unique_id=1501464169]
-layout_mode = 2
-
-[node name="CloseButton" type="Button" parent="SettingsPanel/MarginContainer/VBoxContainer/LowerButtons" unique_id=968600314]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Close"
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=44312867]
 bus = &"UI"
@@ -366,8 +286,3 @@ libraries/ = SubResource("AnimationLibrary_3shxk")
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="EscapeMenuButton" to="." method="pop_menu"]
-[connection signal="value_changed" from="SettingsPanel/MarginContainer/VBoxContainer/MasterSlider" to="SettingsPanel" method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="SettingsPanel/MarginContainer/VBoxContainer/MusicSlider" to="SettingsPanel" method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="SettingsPanel/MarginContainer/VBoxContainer/SFXSlider" to="SettingsPanel" method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="SettingsPanel/MarginContainer/VBoxContainer/UISlider" to="SettingsPanel" method="_on_ui_slider_value_changed"]
-[connection signal="pressed" from="SettingsPanel/MarginContainer/VBoxContainer/LowerButtons/CloseButton" to="SettingsPanel" method="_on_close_button_pressed"]

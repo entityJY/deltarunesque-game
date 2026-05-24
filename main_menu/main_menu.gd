@@ -17,7 +17,7 @@ var active_menus: Array[menus]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	settings_menu.close_settings_menu.connect(settings_closed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,7 +39,6 @@ func _on_credits_pressed() -> void:
 	active_menus.append(menus.CREDITS)
 	escape_menu_button.show()
 
-
 func pop_menu() -> void:
 	var popped_menu = active_menus.pop_back()
 
@@ -51,5 +50,10 @@ func pop_menu() -> void:
 	if popped_menu == menus.SETTINGS:
 		settings_menu.close_settings()
 	
+	if len(active_menus) == 0:
+		escape_menu_button.hide()
+
+func settings_closed() -> void:
+	active_menus.pop_back()
 	if len(active_menus) == 0:
 		escape_menu_button.hide()

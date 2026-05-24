@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://7yafxd8dxjin"]
+
+[ext_resource type="Script" uid="uid://1i0ws5q2kk87" path="res://ui/settings/settings.gd" id="1_jwxja"]
+
+[node name="SettingsPanel" type="PanelContainer" unique_id=25184077 node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider", "ui_slider", "button_sfx", "animation_player")]
+custom_minimum_size = Vector2(960, 540)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -1290.0
+offset_right = 480.0
+offset_bottom = -662.9999
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwxja")
+master_slider = NodePath("MarginContainer/VBoxContainer/MasterSlider")
+music_slider = NodePath("MarginContainer/VBoxContainer/MusicSlider")
+sfx_slider = NodePath("MarginContainer/VBoxContainer/SFXSlider")
+ui_slider = NodePath("MarginContainer/VBoxContainer/UISlider")
+button_sfx = NodePath("")
+animation_player = NodePath("")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1623837506]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1238944539]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=284482637]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="Master" type="Label" parent="MarginContainer/VBoxContainer" unique_id=596945852]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1611257525]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Music" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1070847923]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=461110145]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="SFX" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1514300218]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=69720487]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="UI" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1523090081]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1863003712]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="LowerButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=925356836]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/LowerButtons" unique_id=1078933543]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Close"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/UISlider" to="." method="_on_ui_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LowerButtons/CloseButton" to="." method="_on_close_button_pressed"]

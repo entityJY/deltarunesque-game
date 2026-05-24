@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://brh6w8cvu50xk" path="res://ui/pause_menu/pause_assets/continue_hover.png" id="5_b05md"]
 [ext_resource type="Texture2D" uid="uid://jyxnrpqnqxot" path="res://ui/pause_menu/pause_assets/setting_hover.png" id="5_c3jo5"]
 [ext_resource type="Texture2D" uid="uid://dv7hf75kvwtvp" path="res://ui/pause_menu/pause_assets/home_hover.png" id="5_j11rl"]
+[ext_resource type="PackedScene" uid="uid://7yafxd8dxjin" path="res://ui/settings/settings_menu.tscn" id="12_lhp7q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_le02u"]
 texture = ExtResource("1_jbgdu")
@@ -42,8 +43,110 @@ texture = ExtResource("4_b4b0p")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uraes"]
 texture = ExtResource("5_c3jo5")
 
-[node name="PauseMenu" type="PanelContainer" unique_id=1300781280]
+[sub_resource type="Animation" id="Animation_j11rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SettingsPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, -750)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_nkwjh"]
+resource_name = "close_pause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 360), Vector2(640, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_pu65w"]
+resource_name = "close_settings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SettingsPanel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 226.5), Vector2(480, -750)]
+}
+
+[sub_resource type="Animation" id="Animation_wdlyj"]
+resource_name = "open_pause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, -500), Vector2(640, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_lhp7q"]
+resource_name = "open_settings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SettingsPanel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, -750), Vector2(480, 226.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j11rl"]
+_data = {
+&"RESET": SubResource("Animation_j11rl"),
+&"close_pause": SubResource("Animation_nkwjh"),
+&"close_settings": SubResource("Animation_pu65w"),
+&"open_pause": SubResource("Animation_wdlyj"),
+&"open_settings": SubResource("Animation_lhp7q")
+}
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1846227727]
 process_mode = 3
+
+[node name="PauseMenu" type="PanelContainer" parent="." unique_id=1300781280 node_paths=PackedStringArray("animation_player", "settings_menu")]
 z_index = 1
 custom_minimum_size = Vector2(640, 360)
 anchors_preset = 8
@@ -52,51 +155,73 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -320.0
-offset_top = -180.0
+offset_top = -1040.0
 offset_right = 320.0
-offset_bottom = 180.0
+offset_bottom = -680.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_le02u")
 script = ExtResource("1_mnjdh")
 play_scene = "uid://b7cldscw5umdk"
+animation_player = NodePath("../AnimationPlayer")
+settings_menu = NodePath("../SettingsPanel")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=506577662]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu" unique_id=506577662]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" unique_id=1812097404]
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/HBoxContainer" unique_id=1812097404]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Home" type="Button" parent="HBoxContainer/CenterContainer" unique_id=413302280]
+[node name="Home" type="Button" parent="PauseMenu/HBoxContainer/CenterContainer" unique_id=413302280]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_pu65w")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nkwjh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wdlyj")
 
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer" unique_id=174691582]
+[node name="CenterContainer2" type="CenterContainer" parent="PauseMenu/HBoxContainer" unique_id=174691582]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Continue" type="Button" parent="HBoxContainer/CenterContainer2" unique_id=974083200]
+[node name="Continue" type="Button" parent="PauseMenu/HBoxContainer/CenterContainer2" unique_id=974083200]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_f2x4c")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lhp7q")
 theme_override_styles/hover = SubResource("StyleBoxTexture_j11rl")
 
-[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer" unique_id=787528560]
+[node name="CenterContainer3" type="CenterContainer" parent="PauseMenu/HBoxContainer" unique_id=787528560]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Settings" type="Button" parent="HBoxContainer/CenterContainer3" unique_id=454319161]
+[node name="Settings" type="Button" parent="PauseMenu/HBoxContainer/CenterContainer3" unique_id=454319161]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_jbgdu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c3jo5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uraes")
 
-[connection signal="pressed" from="HBoxContainer/CenterContainer/Home" to="." method="_on_home_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer2/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer3/Settings" to="." method="_on_settings_pressed"]
+[node name="SettingsPanel" parent="." unique_id=25184077 node_paths=PackedStringArray("button_sfx", "animation_player") instance=ExtResource("12_lhp7q")]
+z_index = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 480.0
+offset_top = -750.0
+offset_right = 1440.0
+offset_bottom = -123.0
+button_sfx = NodePath("../ButtonSFX")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1473779840]
+root_node = NodePath("../PauseMenu")
+libraries/ = SubResource("AnimationLibrary_j11rl")
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=516563561]
+
+[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer/Home" to="PauseMenu" method="_on_home_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer2/Continue" to="PauseMenu" method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer3/Settings" to="PauseMenu" method="_on_settings_pressed"]

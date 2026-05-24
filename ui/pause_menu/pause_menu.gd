@@ -5,18 +5,28 @@ class_name PauseMenu
 @export_file var play_scene: String
 var paused: bool = false
 
+@export var animation_player: AnimationPlayer
+@export var settings_menu: SettingsMenu
+
+var settings_menu_active: bool = false
+
 
 func _ready() -> void:
-	hide()
+	pass
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
+		if settings_menu_active:
+			settings_menu.close_settings()
+			settings_menu_active = false
+			return
+		
 		paused = !paused
 		if paused:
 			get_tree().paused = true
-			show()
+			animation_player.play("open_pause")
 		else:
-			hide()
+			animation_player.play("close_pause")
 			get_tree().paused = false
 
 func _on_home_pressed() -> void:
@@ -25,8 +35,12 @@ func _on_home_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	paused = false
-	hide()
+	animation_player.play("close_pause")
 	get_tree().paused = false
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	settings_menu.open_settings()
+	settings_menu_active = true
+
+func settings_closed() -> void:
+	settings_menu_active = false
