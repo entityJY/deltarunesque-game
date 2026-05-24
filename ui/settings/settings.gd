@@ -13,22 +13,31 @@ class_name SettingsMenu
 @export var button_sfx: AudioStreamPlayer
 @export var animation_player: AnimationPlayer
 
+var settings_tween : Tween
+
 signal close_settings_menu()
 
 
 func _ready() -> void:
 	load_config()
 	update()
+	self.position.y = -1140
 
 ## Closes settings menu
 func close_settings() -> void:
 	save_config()
-	animation_player.play("close_settings")
+	if settings_tween:
+		settings_tween.kill()
+	settings_tween = get_tree().create_tween()
+	settings_tween.tween_property(self, "position:y", -1140, 0.5)
 	close_settings_menu.emit()
 
 ## Open settings menu
 func open_settings() -> void:
-	animation_player.play("open_settings")
+	if settings_tween:
+		settings_tween.kill()
+	settings_tween = get_tree().create_tween()
+	settings_tween.tween_property(self, "position:y", 12.5, 0.5)
 
 
 ## Changes master volume.

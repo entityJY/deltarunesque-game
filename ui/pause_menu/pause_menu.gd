@@ -10,7 +10,6 @@ var paused: bool = false
 
 var settings_menu_active: bool = false
 
-
 func _ready() -> void:
 	settings_menu.close_settings_menu.connect(settings_closed)
 
@@ -41,6 +40,8 @@ func _on_continue_pressed() -> void:
 func _on_settings_pressed() -> void:
 	settings_menu.open_settings()
 	settings_menu_active = true
+	
 
 func settings_closed() -> void:
 	settings_menu_active = false
+	
