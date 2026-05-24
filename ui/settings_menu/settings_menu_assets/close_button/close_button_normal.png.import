@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djp8jjw7080m"
-path="res://.godot/imported/slider_grabber_hover.png-4c1523b171bd1d33008b5c68c7046724.ctex"
+uid="uid://di75knguo6k0"
+path="res://.godot/imported/close_button_normal.png-82a3e8eba2dc3e97866396451da47fcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/settings_menu/slider/grabber/slider_grabber_hover.png"
-dest_files=["res://.godot/imported/slider_grabber_hover.png-4c1523b171bd1d33008b5c68c7046724.ctex"]
+source_file="res://ui/settings_menu/settings_menu_assets/close_button/close_button_normal.png"
+dest_files=["res://.godot/imported/close_button_normal.png-82a3e8eba2dc3e97866396451da47fcf.ctex"]
 
 [params]
 
