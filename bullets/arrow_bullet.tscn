@@ -1,14 +1,15 @@
-[gd_scene format=3 uid="uid://kowmx5k8pbq4"]
+[gd_scene format=3 uid="uid://cqhboklveaiuc"]
 
 [ext_resource type="Script" uid="uid://b7608swl4bd5t" path="res://bullets/arrowProj.gd" id="2_4bp3c"]
 [ext_resource type="Texture2D" uid="uid://dqucx8p2v81k0" path="res://bullets/arrow_bullet.png" id="2_5ssne"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
-radius = 77.52419
+radius = 86.05
 
 [node name="BaseBullet" type="Area2D" unique_id=1312338901 node_paths=PackedStringArray("sprite")]
 collision_mask = 10
 script = ExtResource("2_4bp3c")
+spawnDelay = 10
 sprite = NodePath("BulletSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
@@ -16,5 +17,5 @@ scale = Vector2(0.075, 0.075)
 shape = SubResource("CircleShape2D_p3kk6")
 
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
-position = Vector2(-3.9999998, 0)
+position = Vector2(-116, 0)
 texture = ExtResource("2_5ssne")

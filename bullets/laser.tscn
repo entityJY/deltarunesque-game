@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmrvmvs4gvn4a"]
 
-[ext_resource type="Script" path="res://bullets/laser.gd" id="1_hggxy"]
+[ext_resource type="Script" uid="uid://cpyhxb78xtbba" path="res://bullets/laser.gd" id="1_hggxy"]
 [ext_resource type="Texture2D" uid="uid://dwge7ikg6ve4x" path="res://bullets/laser_sprite.png" id="2_42eio"]
 [ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="2_jg26s"]
 
@@ -11,6 +11,7 @@ size = Vector2(123, 123)
 collision_mask = 2
 script = ExtResource("1_hggxy")
 laser_duration = 2.0
+r_acc = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1485248790]
 shape = SubResource("RectangleShape2D_42eio")

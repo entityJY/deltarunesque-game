@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cm75ij6o6mw0p"]
+[gd_scene format=3 uid="uid://ceamcwlwl4qd7"]
 
-[ext_resource type="Script" uid="uid://clb1chf3jq38k" path="res://bullets/bouncy_bullet.gd" id="1_neyq0"]
+[ext_resource type="Script" path="res://bullets/bouncy_bullet.gd" id="1_neyq0"]
 [ext_resource type="Texture2D" uid="uid://b4k5nxxn88qjm" path="res://bullets/circle_bullet2.png" id="2_neyq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
