@@ -43,12 +43,14 @@ func _on_area_entered(area: Node2D) -> void:
 ## Disable the bullet so you can't double-dip on damages
 func disable()-> void:
 	can_hurt = false
-	move = false
-	set_deferred('monitorable', false)
-	set_deferred('monitoring', false)
-	var tween = get_tree().create_tween()
-	tween.tween_property(sprite,"modulate:a", 0, 0.2)
-	queue_free()
+	if move:
+		move = false
+		set_deferred('monitorable', false)
+		set_deferred('monitoring', false)
+		var tween = get_tree().create_tween()
+		tween.tween_property(sprite,"modulate:a", 0, 0.2)
+		await tween.finished
+		queue_free()
 
 func _on_body_entered(_body : Node2D):
 	disable()
