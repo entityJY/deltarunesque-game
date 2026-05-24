@@ -9,6 +9,7 @@ var parent
 @export var spriteImage : Texture2D
 var grazed = false
 var move = true
+var can_hurt = true
 
 ## Initializes image for bullet and rotation of bullet
 func _ready() -> void:
@@ -34,13 +35,15 @@ func _physics_process(delta: float) -> void:
 ## Deals damage upon impact
 func _on_area_entered(area: Node2D) -> void:
 	# Hurt enemy here
-	if area.get_parent() is Player:
-		print("ow")
+	if can_hurt and area.get_parent() is Player:
+		can_hurt = false
 		area.get_parent().hurt(damage)
+		
 	disable()
 
 ## Disable the bullet so you can't double-dip on damages
 func disable()-> void:
+	can_hurt = false
 	move = false
 	set_deferred('monitorable', false)
 	set_deferred('monitoring', false)
