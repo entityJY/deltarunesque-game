@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://d3ad7gej1b83h"]
 
 [ext_resource type="Script" uid="uid://bljsapk5gmblr" path="res://bullets/frag1.gd" id="1_lb2yc"]
-[ext_resource type="Texture2D" uid="uid://4sox8p4tfku6" path="res://bullets/6_pointed_star_bullet.png" id="2_lb2yc"]
+[ext_resource type="PackedScene" uid="uid://clqljfl5j8vlw" path="res://bullets/triangleBullet.tscn" id="2_dsqjy"]
+[ext_resource type="Texture2D" uid="uid://buo8ami7dfepj" path="res://bullets/diamond_bullet.png" id="2_lb2yc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
 radius = 77.52419
@@ -11,11 +12,17 @@ position = Vector2(524, 332)
 collision_mask = 10
 script = ExtResource("1_lb2yc")
 timeout_duration = 1.0
-fragment_count = 5
+fragment_count = 2
 freeze_duration = 2.0
+child_scene = ExtResource("2_dsqjy")
 sprite = NodePath("BulletSprite")
 
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1388117145]
+rotation = 1.5707964
+texture = ExtResource("2_lb2yc")
+
+[node name="BulletSprite2" type="Sprite2D" parent="." unique_id=1193043768]
+rotation = 1.5707964
 texture = ExtResource("2_lb2yc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]

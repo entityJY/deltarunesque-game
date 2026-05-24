@@ -3,10 +3,9 @@ extends Projectile
 @export var timeout_duration : float
 @export var fragment_count : int
 @export var freeze_duration : float
-@export var child_scene : String = "res://bullets/base_bullet.tscn"
+@export var child_scene = load("res://bullets/base_bullet.tscn")
 
 func initBullet() -> void:
-	var childInstance = load(child_scene)
 	# Wait before splitting
 	await get_tree().create_timer(timeout_duration).timeout
 	
@@ -18,7 +17,7 @@ func initBullet() -> void:
 	var childBullets = []
 	# initialize all bullets
 	for f in range(fragment_count):
-		var newBullet = childInstance.instantiate()
+		var newBullet = child_scene.instantiate()
 		childBullets.append(newBullet)
 		newBullet.direction = direction.rotated(deg_to_rad(360.0/fragment_count * f))
 	

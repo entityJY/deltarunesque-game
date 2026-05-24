@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="1_favqt"]
 [ext_resource type="PackedScene" uid="uid://bkjk1j4x3bk8i" path="res://bullets/base_bullet.tscn" id="2_76u7y"]
 [ext_resource type="PackedScene" uid="uid://cm75ij6o6mw0p" path="res://bullets/bouncyBullet.tscn" id="2_o453r"]
+[ext_resource type="PackedScene" uid="uid://cgcu4rjvuwn0j" path="res://bullets/double_fragment_spawner.tscn" id="5_k7trm"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rd3vj"]
 size = Vector2(1920, 1080)
@@ -81,3 +82,6 @@ position = Vector2(-182, -205)
 
 [node name="BaseBullet" parent="." unique_id=1900495789 instance=ExtResource("2_76u7y")]
 position = Vector2(-551, 8)
+
+[node name="Marker2D" parent="." unique_id=601326860 instance=ExtResource("5_k7trm")]
+position = Vector2(-230, 199)

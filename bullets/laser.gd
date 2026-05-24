@@ -26,7 +26,8 @@ func _ready() -> void:
 	$WarningSprite.hide()
 	$Sprite2D.modulate.a = 1
 	$CollisionShape2D.shape.size = laserSize
-	await get_tree().create_timer(cooldown_timeout).timeout
+	await get_tree().create_timer(laser_duration).timeout
+	queue_free()
 
 func warningAnimation() -> void:
 	$Sprite2D.modulate.a = 0.2
