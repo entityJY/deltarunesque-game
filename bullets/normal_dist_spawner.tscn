@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8nn03pc4mi3p"]
+
+[ext_resource type="Script" uid="uid://bp73hfs5ejytp" path="res://bullets/normal_dist_spawner.gd" id="1_a2e7s"]
+
+[node name="Marker2D" type="Marker2D" unique_id=184533647 node_paths=PackedStringArray("playerChar")]
+script = ExtResource("1_a2e7s")
+playerChar = NodePath("")
+onreadySpawn = true
