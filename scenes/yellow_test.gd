@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var current_song : AudioStreamPlayer
-@export var current_bpm : int = 146
+@export var current_bpm : int = 150
 ## Beatmap that consists of a list of dictionaries.
 ## Please keep in mind that no validation of values is done,
 ## so check on your own, please. Also, the following is required:
