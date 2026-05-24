@@ -2,7 +2,6 @@ extends Area2D
 class_name Laser
 
 var cooldown = false
-var grazed = false
 @export var warningTime : float = 3
 @export var flashTime : float= 0.1
 @export var damage = 1

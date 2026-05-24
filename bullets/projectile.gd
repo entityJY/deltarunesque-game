@@ -7,7 +7,6 @@ var parent
 @export var direction : Vector2 = Vector2(scale.x, 0)
 @export var sprite : Sprite2D
 @export var spriteImage : Texture2D
-var grazed = false
 var move = true
 
 ## Initializes image for bullet and rotation of bullet
