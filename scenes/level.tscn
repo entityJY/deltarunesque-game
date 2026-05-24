@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="1_2q6dc"]
 [ext_resource type="Texture2D" uid="uid://cj55a2vblfih4" path="res://textures/plainWhite.png" id="1_w7c3h"]
-[ext_resource type="AudioStream" uid="uid://bpyllf85gkha5" path="res://tracks/Red.mp3" id="2_8c41q"]
+[ext_resource type="AudioStream" uid="uid://bpyllf85gkha5" path="res://tracks/RedJohnTalking.mp3" id="2_8c41q"]
 [ext_resource type="AudioStream" uid="uid://dsatxyiqf2qkq" path="res://tracks/Orange.ogg" id="3_8c41q"]
 [ext_resource type="Script" uid="uid://c7pm8qfxrre85" path="res://scenes/modulateCanvas.gd" id="4_mx8sn"]
 [ext_resource type="AudioStream" uid="uid://dhkr6qu65ufh7" path="res://tracks/Yellow.ogg" id="4_olg7q"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://gig7ju17q385"]
+
+[ext_resource type="Script" uid="uid://dovhj5igqgyp0" path="res://bullets/bullet_spawners/spiral_in_spawner.gd" id="1_7jcpg"]
+[ext_resource type="PackedScene" uid="uid://bkjk1j4x3bk8i" path="res://bullets/base_bullet.tscn" id="2_kav8d"]
+
+[node name="SpiralInSpawner" type="Marker2D" unique_id=981966039]
+script = ExtResource("1_7jcpg")
+bullet = ExtResource("2_kav8d")
+spawn_radius = 500.0
+rad_between_bullet = 0.523
+rotates_clockwise = true
+beats_per_bullet = 0.25
+firing_time = 20.0
+bullet_speed = 200.0
+bullet_radius = 32.0
+bpm = 60.0

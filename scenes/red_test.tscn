@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://b4mqntupy6jya"]
+
+[ext_resource type="Script" uid="uid://dnbogckpgx1uo" path="res://scenes/level_test_red.gd" id="1_jbtvc"]
+[ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="2_ekrhm"]
+[ext_resource type="AudioStream" uid="uid://dmbkika2j0lck" path="res://tracks/Red.ogg" id="3_jbtvc"]
+
+[sub_resource type="Gradient" id="Gradient_xfskc"]
+colors = PackedColorArray(0.47601238, 0.21433778, 4.813075e-08, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qagr8"]
+gradient = SubResource("Gradient_xfskc")
+width = 1920
+height = 1080
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
+size = Vector2(20, 750)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qagr8"]
+size = Vector2(26, 1233)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6w1b"]
+size = Vector2(14.999908, 1991)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsthe"]
+size = Vector2(33, 1266)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6dc"]
+size = Vector2(750, 20)
+
+[node name="Level" type="Node2D" unique_id=2140894002 node_paths=PackedStringArray("player", "song_list")]
+script = ExtResource("1_jbtvc")
+player = NodePath("Player")
+current_bpm = 0
+song_list = [NodePath("Red")]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=465149635]
+texture = SubResource("GradientTexture2D_qagr8")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=590509863]
+
+[node name="Walls" type="Node2D" parent="." unique_id=1746583959]
+
+[node name="Wall1" type="StaticBody2D" parent="Walls" unique_id=1090624864]
+position = Vector2(375, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1" unique_id=841353002]
+shape = SubResource("RectangleShape2D_rd3vj")
+
+[node name="Wall6" type="StaticBody2D" parent="Walls" unique_id=1218291270]
+position = Vector2(1031, 7)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall6" unique_id=1514296541]
+position = Vector2(3, 2.5)
+shape = SubResource("RectangleShape2D_qagr8")
+
+[node name="Wall7" type="StaticBody2D" parent="Walls" unique_id=1607054907]
+position = Vector2(24, 596)
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall7" unique_id=116321584]
+position = Vector2(5.5, 22.5)
+shape = SubResource("RectangleShape2D_f6w1b")
+
+[node name="Wall8" type="StaticBody2D" parent="Walls" unique_id=690135661]
+position = Vector2(-1, -612)
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall8" unique_id=750029691]
+position = Vector2(5.5, 22.5)
+shape = SubResource("RectangleShape2D_f6w1b")
+
+[node name="Wall2" type="StaticBody2D" parent="Walls" unique_id=1837252227]
+position = Vector2(-375, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2" unique_id=937647476]
+shape = SubResource("RectangleShape2D_rd3vj")
+
+[node name="Wall5" type="StaticBody2D" parent="Walls" unique_id=780438174]
+position = Vector2(-1089, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall5" unique_id=468083546]
+position = Vector2(52, 11)
+shape = SubResource("RectangleShape2D_rsthe")
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" unique_id=885749507]
+position = Vector2(0, 375)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3" unique_id=1607998366]
+shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" unique_id=1362284127]
+position = Vector2(0, -375)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4" unique_id=132926999]
+shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="Player" parent="." unique_id=1841742184 instance=ExtResource("2_ekrhm")]
+
+[node name="Red" type="AudioStreamPlayer" parent="." unique_id=918302856]
+stream = ExtResource("3_jbtvc")

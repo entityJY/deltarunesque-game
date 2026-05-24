@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://d3p56fkptxpdi"]
+[gd_scene format=3 uid="uid://jnph1cjpljrr"]
 
+[ext_resource type="Script" uid="uid://cbkk05wo8r0y0" path="res://bullets/super_basic_spawner.gd" id="1_6n6ou"]
 [ext_resource type="Script" uid="uid://cbkk05wo8r0y0" path="res://bullets/super_basic_spawner.gd" id="1_6n6ou"]
 
 [node name="Marker2D" type="Marker2D" unique_id=184533647]
-position = Vector2(984, 416)
 script = ExtResource("1_6n6ou")
-maxSpawned = 1
+spawnTimeout = 1.0
+waveCount = 3
