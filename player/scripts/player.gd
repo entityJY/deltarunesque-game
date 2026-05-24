@@ -14,6 +14,7 @@ enum dash_states {
 # 
 # 48 63 78 93 108
 # 
+# 64 88 112 136 160
 
 @export_group("Movement Settings")
 @export var move_speed: float = 700.0
@@ -50,6 +51,8 @@ func _ready() -> void:
 	set_shield_level(shield_level)
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		shield_level -= 1
 
 	for area in grazing_bullets.keys():
 		if !is_instance_valid(area):			# May need to remake dictionary every time, but hopefully not

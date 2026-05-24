@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bc1c0251c5302"]
+
+[ext_resource type="Texture2D" uid="uid://dmof1dy1slfip" path="res://ui/pause_menu/pause_assets/notButton.png" id="1_0t5p1"]
+[ext_resource type="Texture2D" uid="uid://cdko2xdcr8i6d" path="res://ui/pause_menu/pause_assets/home_normal.png" id="1_ebiyw"]
+[ext_resource type="Script" uid="uid://cogsre8bjv28s" path="res://ui/death_menu/death_menu.gd" id="1_m3i1v"]
+[ext_resource type="Texture2D" uid="uid://b7wnvaqelymjc" path="res://ui/pause_menu/pause_assets/home_press.png" id="2_q1rca"]
+[ext_resource type="Texture2D" uid="uid://dv7hf75kvwtvp" path="res://ui/pause_menu/pause_assets/home_hover.png" id="3_accke"]
+[ext_resource type="Texture2D" uid="uid://qgs4ky6d0wlt" path="res://ui/death_menu/death_menu_assets/restart_normal.png" id="5_6pguq"]
+[ext_resource type="Texture2D" uid="uid://6halxtjlseno" path="res://ui/death_menu/death_menu_assets/restart_press.png" id="6_qoau4"]
+[ext_resource type="Texture2D" uid="uid://c3fcvvkdk3bw4" path="res://ui/death_menu/death_menu_assets/restart_hover.png" id="7_iqeu7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6pguq"]
+texture = ExtResource("1_0t5p1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1rca"]
+texture = ExtResource("1_ebiyw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_accke"]
+texture = ExtResource("2_q1rca")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0t5p1"]
+texture = ExtResource("3_accke")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qoau4"]
+texture = ExtResource("5_6pguq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iqeu7"]
+texture = ExtResource("6_qoau4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3i1v"]
+texture = ExtResource("7_iqeu7")
+
+[node name="DeathMenu" type="CanvasLayer" unique_id=1687582225 node_paths=PackedStringArray("button_sfx", "container", "score_label")]
+layer = 3
+script = ExtResource("1_m3i1v")
+button_sfx = NodePath("ButtonPressSFX")
+container = NodePath("PanelContainer")
+score_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/ScoreLabel")
+main_menu_scene = "uid://b7cldscw5umdk"
+play_scene = "uid://dolvx4je86dxv"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1181804268]
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -1040.0
+offset_right = 320.0
+offset_bottom = -680.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6pguq")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=485586226]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1977437417]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1056787430]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScoreLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer" unique_id=1054070670]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Score: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=231349457]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1960136580]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomeButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer" unique_id=671186986]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_q1rca")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_accke")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0t5p1")
+
+[node name="CenterContainer2" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1424137841]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2" unique_id=1827817856]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qoau4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iqeu7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m3i1v")
+
+[node name="ButtonPressSFX" type="AudioStreamPlayer" parent="." unique_id=877888697]
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2/RestartButton" to="." method="_on_restart_button_pressed"]
