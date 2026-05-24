@@ -1,28 +1,63 @@
 extends Node2D
 
+@export var player : Player
+
 @export var current_song : AudioStreamPlayer
-@export var current_bpm : int = 150
+@export var current_bpm : int = 160
 ## Beatmap that consists of a list of dictionaries.
 ## Please keep in mind that no validation of values is done,
 ## so check on your own, please. Also, the following is required:
 ## "spawnerType", "position", "time". Note that "playerChar" just
 ## takes a placeholder value and is set to current player regardless.
-@export var beatmap = [
-	{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+@export var beatmap = []
+
+@export var song_list : Array[AudioStreamPlayer]= []
+
+var loaded_song = {"current_song" : 0,
+"current_bpm" : 160,
+"beatmap": 
+	[{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
 	"spawnTimeout" : .4,
 	"waveCount" : 1,
 	"position" : Vector2(0, 0),
 	"spawnDuration" : 48,
 	"playerChar" : "",
-	"sd" : 300,
+	"sd" : 250,
+	"bulletScale" : Vector2(.07, .07),
+	"rotational" : 90,
+	"time" : 0},
+	{"spawnerType": "res://bullets/super_basic_spawner.tscn",
+	"bullets" : [load("res://bullets/arrow_bullet.tscn")],
+	"spawnTimeout" : .4,
+	"waveCount" : 1,
+	"position" : Vector2(0, 0),
+	"spawnDuration" : 1,
+	"playerChar" : "",
 	"bulletScale" : Vector2(.05, .05),
-	"time" : 0}]
+	"rotational" : 90,
+	"manualMode" : true,
+	"time" : 1}]}
 var current_notes = []
 
 var current_note = 0
 
 func _ready() -> void:
 	await get_tree().create_timer(5).timeout
+	# Attempt to get player
+	if player == null:
+		player = get_node_or_null("Player")
+	
+	# Default
+	load_song(loaded_song)
+	
+
+func load_song(song_data):
+	if song_data["current_song"] >= len(song_list):
+		print("ERROR: CURRENT SONG NOT IN SONG LIST")
+		return
+	current_song = song_list[song_data["current_song"]]
+	current_bpm = song_data["current_bpm"]
+	beatmap = song_data["beatmap"]
 	initialize_song()
 	
 
@@ -65,8 +100,8 @@ func initialize_song():
 		if current_settings.has("spawnDuration"):
 			note_instance.spawnDuration = current_settings["spawnDuration"]
 		
-		if current_settings.has("playerChar"):
-			note_instance.playerChar = $Player
+		if current_settings.has("playerChar") and player:
+			note_instance.playerChar = player
 		
 		if current_settings.has("manualMode"):
 			note_instance.manualMode = current_settings["manualMode"]
@@ -119,7 +154,7 @@ func initialize_song():
 			spawner.queue_free()
 
 func _process(_delta: float) -> void:
-	if current_song.playing:
+	if current_song and current_song.playing:
 		var time = current_song.get_playback_position() + AudioServer.get_time_since_last_mix()
 		time -= AudioServer.get_output_latency()
 		var beat_duration = 60.0/current_bpm

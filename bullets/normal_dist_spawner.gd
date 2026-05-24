@@ -123,11 +123,11 @@ func bullet_init_settings(bullet_index : int, wave_index : int):
 		
 	else:
 		var val = rng.randfn(playerChar.global_position.y, sd) 
-		var result = int(clamp(val, -540, 540))
+		var result = int(clamp(val, -530, 530))
 		if newBullet.direction.x < 0:
-			newBullet.global_position = Vector2(960, result)
+			newBullet.global_position = Vector2(900, result)
 		else:
-			newBullet.global_position = Vector2(-960, result)
+			newBullet.global_position = Vector2(-900, result)
 		
 	
 	newBullet.scale = bulletScale
@@ -168,11 +168,12 @@ func start_spawning() -> void:
 			maxSpawned = INF
 		# We can also restrict the number of things spawned by this spanwer
 		while spawned_number < maxSpawned:
-			await get_tree().create_timer(spawnTimeout).timeout
+			
 			# We can spawn multiple bullets at once in a wave
 			for nBullet in range(0, waveCount):
 				bullet_init_settings(spawned_number % len(bullets), nBullet)
 			spawned_waves += 1
+			await get_tree().create_timer(spawnTimeout).timeout
 		queue_free()
 	else:
 		manual_run()
