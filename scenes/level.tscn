@@ -10,12 +10,22 @@
 [ext_resource type="AudioStream" uid="uid://dgtn6guu7a0ra" path="res://tracks/Green.mp3" id="5_8iemx"]
 [ext_resource type="PackedScene" uid="uid://qj4j64rlo7bq" path="res://ui/pause_menu/pause_menu.tscn" id="5_ppgk2"]
 [ext_resource type="AudioStream" uid="uid://1rr4lhujyab2" path="res://tracks/Blue.ogg" id="6_t1rx8"]
+[ext_resource type="Texture2D" uid="uid://cptwpvd75yny8" path="res://textures/darkGrey.png" id="8_t1rx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
 size = Vector2(20, 750)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6dc"]
 size = Vector2(750, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1rx8"]
+size = Vector2(26, 1233)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8iemx"]
+size = Vector2(14.999908, 1991)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64w2a"]
+size = Vector2(33, 1266)
 
 [node name="Level" type="Node2D" unique_id=2140894002]
 
@@ -39,6 +49,10 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1" unique_id=841353002]
 shape = SubResource("RectangleShape2D_rd3vj")
 
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall1" unique_id=1081357807]
+scale = Vector2(0.013020822, 0.8020834)
+texture = ExtResource("8_t1rx8")
+
 [node name="Wall2" type="StaticBody2D" parent="Walls" unique_id=1837252227]
 position = Vector2(-375, 0)
 collision_layer = 4
@@ -46,6 +60,10 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2" unique_id=937647476]
 shape = SubResource("RectangleShape2D_rd3vj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall2" unique_id=1116876817]
+scale = Vector2(0.013020822, 0.8020834)
+texture = ExtResource("8_t1rx8")
 
 [node name="Wall3" type="StaticBody2D" parent="Walls" unique_id=885749507]
 position = Vector2(0, 375)
@@ -55,6 +73,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3" unique_id=1607998366]
 shape = SubResource("RectangleShape2D_2q6dc")
 
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall3" unique_id=267541068]
+position = Vector2(-9.536743e-06, 0)
+scale = Vector2(0.50130206, 0.020833373)
+texture = ExtResource("8_t1rx8")
+
 [node name="Wall4" type="StaticBody2D" parent="Walls" unique_id=1362284127]
 position = Vector2(0, -375)
 collision_layer = 4
@@ -62,6 +85,49 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4" unique_id=132926999]
 shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall4" unique_id=2009980906]
+position = Vector2(-9.536743e-06, 0)
+scale = Vector2(0.50130206, 0.020833373)
+texture = ExtResource("8_t1rx8")
+
+[node name="Wall6" type="StaticBody2D" parent="Walls" unique_id=1552031301]
+position = Vector2(1031, 7)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall6" unique_id=1325168850]
+position = Vector2(3, 2.5)
+shape = SubResource("RectangleShape2D_t1rx8")
+
+[node name="Wall7" type="StaticBody2D" parent="Walls" unique_id=617008798]
+position = Vector2(24, 596)
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall7" unique_id=1916177783]
+position = Vector2(5.5, 22.5)
+shape = SubResource("RectangleShape2D_8iemx")
+
+[node name="Wall8" type="StaticBody2D" parent="Walls" unique_id=1471194416]
+position = Vector2(-1, -612)
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall8" unique_id=1694856345]
+position = Vector2(5.5, 22.5)
+shape = SubResource("RectangleShape2D_8iemx")
+
+[node name="Wall5" type="StaticBody2D" parent="Walls" unique_id=1866953431]
+position = Vector2(-1089, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall5" unique_id=251247029]
+position = Vector2(52, 11)
+shape = SubResource("RectangleShape2D_64w2a")
 
 [node name="Player" parent="." unique_id=1841742184 instance=ExtResource("1_2q6dc")]
 

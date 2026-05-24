@@ -1,4 +1,5 @@
 extends Projectile
+class_name FragmentBullet
 
 @export var timeout_duration : float
 @export var fragment_count : int
@@ -20,10 +21,13 @@ func initBullet() -> void:
 		var newBullet = child_scene.instantiate()
 		childBullets.append(newBullet)
 		newBullet.direction = direction.rotated(deg_to_rad(360.0/fragment_count * f))
+		newBullet.scale /= 2
+		if newBullet is FragmentBullet:
+			newBullet.timeout_duration = 3.0
 	
 	# add all bullets
 	for childFragment in childBullets:
-		childFragment.global_position = global_position
+		childFragment.global_position = global_position + childFragment.direction*100
 		get_parent().add_child(childFragment)
 
 	disable()

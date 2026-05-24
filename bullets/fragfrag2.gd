@@ -1,9 +1,10 @@
 extends Projectile
+class_name FragFragBullet
 
 @export var timeout_duration : float
 @export var fragment_count : int
 @export var freeze_duration : float
-@export var child_scene = load("res://bullets/base_bullet.tscn")
+@export var child_scene = load("res://bullets/frag_bullet.tscn")
 
 func initBullet() -> void:
 	# Wait before splitting
@@ -20,6 +21,7 @@ func initBullet() -> void:
 		var newBullet = child_scene.instantiate()
 		childBullets.append(newBullet)
 		newBullet.direction = direction.rotated(deg_to_rad(360.0/fragment_count * f))
+		newBullet.scale /= 2
 	
 	# add all bullets
 	for childFragment in childBullets:

@@ -21,9 +21,5 @@ sprite = NodePath("BulletSprite")
 rotation = 1.5707964
 texture = ExtResource("2_lb2yc")
 
-[node name="BulletSprite2" type="Sprite2D" parent="." unique_id=1193043768]
-rotation = 1.5707964
-texture = ExtResource("2_lb2yc")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]
 shape = SubResource("CircleShape2D_p3kk6")

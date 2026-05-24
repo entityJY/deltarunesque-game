@@ -1,7 +1,5 @@
 extends Node2D
 
-var player : Player
-
 @export var current_song : AudioStreamPlayer
 @export var current_bpm : int = 146
 ## Beatmap that consists of a list of dictionaries.
@@ -214,7 +212,7 @@ func initialize_song():
 			note_instance.spawnDuration = current_settings["spawnDuration"]
 		
 		if current_settings.has("playerChar"):
-			note_instance.playerChar = player
+			note_instance.playerChar = $Player
 		
 		if current_settings.has("manualMode"):
 			note_instance.manualMode = current_settings["manualMode"]

@@ -1,14 +1,17 @@
 extends CanvasModulate
 
 @export var tracks: Array[AudioStream] = []
+@export var stages: = [null, preload("res://scenes/orange_scene.tscn"), null, null, null]
 @export var fadeTime = 2.0
 @export var fadeDB = -20.0
+@export var player : Player
 var stage := 0
 var tween: Tween
 var audioPlayer1 : AudioStreamPlayer2D
 var audioPlayer2 : AudioStreamPlayer2D
 var isCurrPlayer1 : bool = true
 var swapping : bool = false
+var activeStage = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +46,7 @@ func stageSwap():
 	var prevStage = stage
 	while stage == prevStage:	
 		stage = randi_range(0, 4)
+		stage = 1
 	
 	match stage:
 		0:
@@ -80,6 +84,12 @@ func stageSwap():
 	var audioOut = create_tween()
 	audioIn.tween_property(newPlayer, "volume_db", 0.0, fadeTime)
 	audioOut.tween_property(prevPlayer, "volume_db", fadeDB, fadeTime)
+	
+	if stages[stage] != null:
+		activeStage = stages[stage].instantiate()
+		get_parent().add_child.call_deferred(activeStage)
+		activeStage.global_position = global_position
+		activeStage.player = player
 	
 	await get_tree().create_timer(fadeTime).timeout
 	
