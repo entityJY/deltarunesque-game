@@ -5,8 +5,6 @@ class_name PauseMenu
 @export_file var play_scene: String
 var paused: bool = false
 
-signal restart_level
-
 
 func _ready() -> void:
 	hide()
@@ -30,7 +28,5 @@ func _on_continue_pressed() -> void:
 	hide()
 	get_tree().paused = false
 
-func _on_restart_pressed() -> void:
-	get_tree().paused = false
-	hide()
-	restart_level.emit()
+func _on_settings_pressed() -> void:
+	pass # Replace with function body.
