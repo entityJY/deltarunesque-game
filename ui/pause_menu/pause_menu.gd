@@ -12,7 +12,7 @@ var settings_menu_active: bool = false
 
 
 func _ready() -> void:
-	pass
+	settings_menu.close_settings_menu.connect(settings_closed)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
