@@ -33,6 +33,10 @@ var dash_state: dash_states = dash_states.DASH_AVAILABLE
 
 var shield_level: int = 4: set = set_shield_level
 
+var points: int = 0
+
+var grazing_bullets: Dictionary[Area2D, float] = {}
+
 
 func _ready() -> void:
 	dash_speed = dash_distance/dash_time
@@ -43,8 +47,14 @@ func _ready() -> void:
 	set_shield_level(shield_level)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		shield_level -= 1
+
+	for area in grazing_bullets.keys():
+		if !is_instance_valid(area):			# May need to remake dictionary every time, but hopefully not
+			(func(a: Area2D): grazing_bullets.erase(a)).call_deferred(area)
+			continue
+		grazing_bullets[area] += delta
+		# calculate difference in velocity here
+	
 	movement(delta)
 	move_and_slide()
 
@@ -104,7 +114,12 @@ func set_shield_level(level: int) -> void:
 		outer_shield.shape.radius = 48 + 15 * i
 	scale_hit_box.call_deferred(level)
 
+
+func _on_outer_hitbox_area_entered(area: Area2D) -> void:
+	if (area is Projectile or area is Laser):
+		grazing_bullets[area] = 0.0
+
 func _on_outer_hitbox_area_exited(area: Area2D) -> void:
-	if (area is Projectile or area is Laser) and !area.grazed:
-		area.grazed = true
-		# increment points here
+	if (area is Projectile or area is Laser):
+		points += int(grazing_bullets[area] * 100)			# 100 points per second spent grazing
+		grazing_bullets.erase(area)
