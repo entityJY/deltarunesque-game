@@ -1,6 +1,6 @@
 extends Node2D
 
-var player : Player
+@export var player : Player
 
 @export var current_song : AudioStreamPlayer
 @export var current_bpm : int = 146
@@ -9,7 +9,14 @@ var player : Player
 ## so check on your own, please. Also, the following is required:
 ## "spawnerType", "position", "time". Note that "playerChar" just
 ## takes a placeholder value and is set to current player regardless.
-@export var beatmap = [
+@export var beatmap = []
+
+@export var song_list : Array[AudioStreamPlayer]= []
+
+var loaded_song = {"current_song" : 0,
+"current_bpm" : 146,
+"beatmap": 
+	[
 	{"spawnerType": "res://bullets/lineSpawner.tscn",
 	"spawnTimeout" : 1.2,
 	"position" : Vector2(-950, 86),
@@ -164,13 +171,28 @@ var player : Player
 	"manualMode" : true,
 	"time" : 79.75},
 	
-]
+]}
 var current_notes = []
 
 var current_note = 0
 
 func _ready() -> void:
 	await get_tree().create_timer(5).timeout
+	# Attempt to get player
+	if player == null:
+		player = get_node_or_null("Player")
+	
+	# Default
+	load_song(loaded_song)
+	
+
+func load_song(song_data):
+	if song_data["current_song"] >= len(song_list):
+		print("ERROR: CURRENT SONG NOT IN SONG LIST")
+		return
+	current_song = song_list[song_data["current_song"]]
+	current_bpm = song_data["current_bpm"]
+	beatmap = song_data["beatmap"]
 	initialize_song()
 	
 
@@ -213,7 +235,7 @@ func initialize_song():
 		if current_settings.has("spawnDuration"):
 			note_instance.spawnDuration = current_settings["spawnDuration"]
 		
-		if current_settings.has("playerChar"):
+		if current_settings.has("playerChar") and player:
 			note_instance.playerChar = player
 		
 		if current_settings.has("manualMode"):
@@ -264,7 +286,7 @@ func initialize_song():
 			spawner.queue_free()
 
 func _process(_delta: float) -> void:
-	if current_song.playing:
+	if current_song and current_song.playing:
 		var time = current_song.get_playback_position() + AudioServer.get_time_since_last_mix()
 		time -= AudioServer.get_output_latency()
 		var beat_duration = 60.0/current_bpm
