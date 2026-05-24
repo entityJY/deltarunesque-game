@@ -159,11 +159,11 @@ func start_spawning() -> void:
 			maxSpawned = INF
 		# We can also restrict the number of things spawned by this spanwer
 		while spawned_number < maxSpawned:
-			await get_tree().create_timer(spawnTimeout).timeout
 			# We can spawn multiple bullets at once in a wave
 			for nBullet in range(0, waveCount):
 				bullet_init_settings(spawned_number % len(bullets), nBullet)
 			spawned_waves += 1
+			await get_tree().create_timer(spawnTimeout).timeout
 		queue_free()
 	else:
 		manual_run()

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cp15lpqrk8t4f"]
+
+[ext_resource type="Script" uid="uid://cbkk05wo8r0y0" path="res://bullets/super_basic_spawner.gd" id="1_dy5vs"]
+[ext_resource type="PackedScene" uid="uid://bkjk1j4x3bk8i" path="res://bullets/base_bullet.tscn" id="2_sk2ed"]
+
+[node name="Marker2D" type="Marker2D" unique_id=184533647]
+position = Vector2(984, 416)
+script = ExtResource("1_dy5vs")
+spawnTimeout = 0.15
+waveCount = 3
+spawnRange = Vector2(0, 30)
+rotationRange = Vector2(0, 30)
+panEnabled = true
+spawnDuration = 0
+bullets = [ExtResource("2_sk2ed")]

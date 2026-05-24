@@ -13,7 +13,8 @@ extends Node2D
 
 @export var song_list : Array[AudioStreamPlayer]= []
 
-var loaded_song = {"current_song" : 0,
+var song_maps = [
+	{"current_song" : 0,
 "current_bpm" : 146,
 "beatmap": 
 	[
@@ -171,19 +172,164 @@ var loaded_song = {"current_song" : 0,
 	"manualMode" : true,
 	"time" : 79.75},
 	
+]},
+{"current_song" : 1,
+"current_bpm" : 100,
+"beatmap": 
+	[
+	{"spawnerType": "res://bullets/bubble_spawner.tscn",
+	#"spawnTimeout" : 1.2,
+	"position" : Vector2(-960, 540),
+	"rotation" : deg_to_rad(-100),
+	"spawnDuration" : 4.8,
+	"time" : 0},
+	{"spawnerType": "res://bullets/bubble_spawner.tscn",
+	#"spawnTimeout" : 1.2,
+	"position" : Vector2(960, -540),
+	"rotation" : deg_to_rad(100),
+	"spawnDuration" : 4.8,
+	"time" : 0},
+	{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	"position" : Vector2(-960, 0),
+	"spawnDuration" : 2.3,
+	"time" : 0},
+	{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	"position" : Vector2(960, 0),
+	"rotation" : deg_to_rad(180),
+	"spawnDuration" : 2.3,
+	"time" : 16},
+	{"spawnerType": "res://bullets/bubble_spawner.tscn",
+	#"spawnTimeout" : 1.2,
+	"position" : Vector2(960, 540),
+	"rotation" : deg_to_rad(160),
+	"spawnDuration" : 4.8,
+	"time" : 16},
+	{"spawnerType": "res://bullets/bubble_spawner.tscn",
+	#"spawnTimeout" : 1.2,
+	"position" : Vector2(-960, -540),
+	"rotation" : deg_to_rad(20),
+	"spawnDuration" : 4.8,
+	"time" : 16},
+	
+	# piano
+	{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
+	"spawnTimeout" : 2.4,
+	"position" : Vector2(-960, 540),
+	"spawnRange" : Vector2(0, 120),
+	"playerChar" : '',
+	"spawnDuration" : 9.86,
+	"manualMode": true,
+	"time" : 32},
+	
+	{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	"position" : Vector2(960, 0),
+	"rotation" : deg_to_rad(180),
+	"spawnDuration" : 1,
+	"time" : 33},
+	
+	{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
+	"spawnTimeout" : 2.4,
+	"position" : Vector2(960, -540),
+	"spawnRange" : Vector2(0, 120),
+	"playerChar" : '',
+	"spawnDuration" : 4.93,
+	"manualMode": true,
+	"time" : 33.5},
+	
+	#{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	#"position" : Vector2(-960, 0),
+	#"spawnDuration" : 1.4,
+	#"time" : 34},
+	
+	{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
+	"spawnTimeout" : 2.4,
+	"position" : Vector2(960, 540),
+	"spawnRange" : Vector2(0, 120),
+	"playerChar" : '',
+	"spawnDuration" : 4.93,
+	"manualMode": true,
+	"time" : 34.25},
+	
+	# piano measure 2
+	{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
+	"spawnTimeout" : 2.4,
+	"position" : Vector2(-960, -540),
+	"spawnRange" : Vector2(0, 120),
+	"playerChar" : '',
+	"spawnDuration" : 9.86,
+	"manualMode": true,
+	"time" : 36},
+	
+	{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	"position" : Vector2(-960, 0),
+	"spawnDuration" : 1,
+	"time" : 37},
+	
+	{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
+	"spawnTimeout" : 2.4,
+	"position" : Vector2(-960, 540),
+	"spawnRange" : Vector2(0, 120),
+	"playerChar" : '',
+	"spawnDuration" : 4.93,
+	"manualMode": true,
+	"time" : 37.5},
+	
+	#{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	#"position" : Vector2(960, 0),
+	#"rotation" : deg_to_rad(180),
+	#"spawnDuration" : 1,
+	#"time" : 38},
+	#
+	# piano measure 3
+	{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
+	"spawnTimeout" : 2.4,
+	"position" : Vector2(-960, 540),
+	"spawnRange" : Vector2(0, 120),
+	"playerChar" : '',
+	"spawnDuration" : 9.86,
+	"manualMode": true,
+	"time" : 40},
+	
+	{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	"position" : Vector2(-960, 0),
+	"spawnDuration" : 1,
+	"time" : 41},
+	
+	{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
+	"spawnTimeout" : 2.4,
+	"position" : Vector2(-960, 540),
+	"spawnRange" : Vector2(0, 120),
+	"playerChar" : '',
+	"spawnDuration" : 4.93,
+	"manualMode": true,
+	"time" : 42.5},
+	
+	#{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	#"position" : Vector2(960, 0),
+	#"rotation" : deg_to_rad(180),
+	#"spawnDuration" : 1,
+	#"time" : 43},
+	
+	#{"spawnerType": "res://bullets/bouncer_spawner.tscn",
+	#"position" : Vector2(-960, 0),
+	#"spawnDuration" : 1,
+	#"time" : 43.75},
 ]}
+]
+
+var loaded_song = {}
 var current_notes = []
 
 var current_note = 0
 
 func _ready() -> void:
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(1).timeout
 	# Attempt to get player
 	if player == null:
 		player = get_node_or_null("Player")
 	
 	# Default
-	load_song(loaded_song)
+	load_song(song_maps[1])
 	
 
 func load_song(song_data):

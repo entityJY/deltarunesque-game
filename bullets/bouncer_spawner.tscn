@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddco2x1yvf25a"]
+
+[ext_resource type="Script" uid="uid://cbkk05wo8r0y0" path="res://bullets/super_basic_spawner.gd" id="1_guwrx"]
+[ext_resource type="PackedScene" uid="uid://ceamcwlwl4qd7" path="res://bullets/bouncyBullet.tscn" id="2_trixl"]
+
+[node name="Marker2D" type="Marker2D" unique_id=184533647]
+position = Vector2(984, 416)
+script = ExtResource("1_guwrx")
+spawnTimeout = 1.2
+waveCount = 1
+rotational = 0
+bullets = [ExtResource("2_trixl")]
+bulletInitSettings = [{
+"bounce_counter": 1,
+"speed": 800
+}]
+bulletScale = Vector2(0.2, 0.2)
