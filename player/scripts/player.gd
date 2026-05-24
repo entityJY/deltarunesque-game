@@ -30,12 +30,15 @@ var dash_state: dash_states = dash_states.DASH_AVAILABLE
 @export var outer_shield: CollisionShape2D
 @export var collision_shape: CollisionShape2D
 @export var shield_sprite_array: Array[Sprite2D]
+@export var death_sprite: Sprite2D
 
 var shield_level: int = 4: set = set_shield_level
 
 var points: int = 0
 
 var grazing_bullets: Dictionary[Area2D, float] = {}
+
+signal player_killed(score: int)
 
 
 func _ready() -> void:
@@ -98,7 +101,13 @@ func enable_dash() -> void:
 
 
 func set_shield_level(level: int) -> void:
-	if level < 0 or level > 4:
+	if level < 0:
+		player_killed.emit(points)
+		death_sprite.visible = true
+		for i in range(5):
+			shield_sprite_array[i].visible = false
+		return
+	if level > 4:
 		return
 	
 	shield_level = level

@@ -12,7 +12,7 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1dw6"]
 radius = 48.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1841742184 node_paths=PackedStringArray("hit_box", "outer_shield", "collision_shape", "shield_sprite_array")]
+[node name="Player" type="CharacterBody2D" unique_id=1841742184 node_paths=PackedStringArray("hit_box", "outer_shield", "collision_shape", "shield_sprite_array", "death_sprite")]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_rkbax")
@@ -20,8 +20,12 @@ hit_box = NodePath("Hitbox/InnerCollision")
 outer_shield = NodePath("OuterHitbox/Collision")
 collision_shape = NodePath("PlayerCollision")
 shield_sprite_array = [NodePath("Shields/Shield0"), NodePath("Shields/Shield1"), NodePath("Shields/Shield2"), NodePath("Shields/Shield3"), NodePath("Shields/Shield4")]
+death_sprite = NodePath("Shields/Dead")
 
 [node name="Shields" type="Node2D" parent="." unique_id=656366786]
+
+[node name="Dead" type="Sprite2D" parent="Shields" unique_id=1883645576]
+visible = false
 
 [node name="Shield0" type="Sprite2D" parent="Shields" unique_id=1124570379]
 scale = Vector2(0.5, 0.5)

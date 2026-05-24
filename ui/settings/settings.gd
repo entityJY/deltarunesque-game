@@ -28,7 +28,7 @@ func close_settings() -> void:
 	save_config()
 	if settings_tween:
 		settings_tween.kill()
-	settings_tween = get_tree().create_tween()
+	settings_tween = create_tween()
 	settings_tween.tween_property(self, "position:y", -1140, 0.5)
 	close_settings_menu.emit()
 
@@ -36,7 +36,7 @@ func close_settings() -> void:
 func open_settings() -> void:
 	if settings_tween:
 		settings_tween.kill()
-	settings_tween = get_tree().create_tween()
+	settings_tween = create_tween()
 	settings_tween.tween_property(self, "position:y", 12.5, 0.5)
 
 
