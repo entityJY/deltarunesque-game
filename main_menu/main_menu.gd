@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 class_name MainMenu
 
 
@@ -11,12 +11,13 @@ enum menus {
 @export_file var play_scene: String
 @export var animation_player: AnimationPlayer
 @export var escape_menu_button: Button
+@export var settings_menu: SettingsMenu
 var active_menus: Array[menus]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +30,9 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(play_scene)
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	escape_menu_button.show()
+	settings_menu.open_settings()
+	active_menus.append(menus.SETTINGS)
 
 func _on_credits_pressed() -> void:
 	animation_player.play("open_credits")
@@ -45,6 +48,8 @@ func pop_menu() -> void:
 
 	if popped_menu == menus.CREDITS:
 		animation_player.play("close_credits")
+	if popped_menu == menus.SETTINGS:
+		settings_menu.close_settings()
 	
 	if len(active_menus) == 0:
 		escape_menu_button.hide()

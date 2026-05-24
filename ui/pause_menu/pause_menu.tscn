@@ -1,6 +1,46 @@
 [gd_scene format=3 uid="uid://qj4j64rlo7bq"]
 
+[ext_resource type="Texture2D" uid="uid://dmof1dy1slfip" path="res://ui/pause_menu/pause_assets/notButton.png" id="1_jbgdu"]
 [ext_resource type="Script" uid="uid://bpqst0s0y2qr4" path="res://ui/pause_menu/pause_menu.gd" id="1_mnjdh"]
+[ext_resource type="Texture2D" uid="uid://cdko2xdcr8i6d" path="res://ui/pause_menu/pause_assets/home_normal.png" id="3_f2x4c"]
+[ext_resource type="Texture2D" uid="uid://d17tgd1u6lc2w" path="res://ui/pause_menu/pause_assets/setting_normal.png" id="3_le02u"]
+[ext_resource type="Texture2D" uid="uid://bm85l2j71plb0" path="res://ui/pause_menu/pause_assets/continue_normal.png" id="3_umsyg"]
+[ext_resource type="Texture2D" uid="uid://bdrm8n43n1lcf" path="res://ui/pause_menu/pause_assets/continue_press.png" id="4_3qrb2"]
+[ext_resource type="Texture2D" uid="uid://dlemd8131j3si" path="res://ui/pause_menu/pause_assets/setting_press.png" id="4_b4b0p"]
+[ext_resource type="Texture2D" uid="uid://b7wnvaqelymjc" path="res://ui/pause_menu/pause_assets/home_press.png" id="4_lhp7q"]
+[ext_resource type="Texture2D" uid="uid://brh6w8cvu50xk" path="res://ui/pause_menu/pause_assets/continue_hover.png" id="5_b05md"]
+[ext_resource type="Texture2D" uid="uid://jyxnrpqnqxot" path="res://ui/pause_menu/pause_assets/setting_hover.png" id="5_c3jo5"]
+[ext_resource type="Texture2D" uid="uid://dv7hf75kvwtvp" path="res://ui/pause_menu/pause_assets/home_hover.png" id="5_j11rl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_le02u"]
+texture = ExtResource("1_jbgdu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pu65w"]
+texture = ExtResource("3_f2x4c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkwjh"]
+texture = ExtResource("4_lhp7q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wdlyj"]
+texture = ExtResource("5_j11rl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2x4c"]
+texture = ExtResource("3_umsyg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhp7q"]
+texture = ExtResource("4_3qrb2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j11rl"]
+texture = ExtResource("5_b05md")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jbgdu"]
+texture = ExtResource("3_le02u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3jo5"]
+texture = ExtResource("4_b4b0p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uraes"]
+texture = ExtResource("5_c3jo5")
 
 [node name="PauseMenu" type="PanelContainer" unique_id=1300781280]
 process_mode = 3
@@ -17,6 +57,7 @@ offset_right = 320.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_le02u")
 script = ExtResource("1_mnjdh")
 play_scene = "uid://b7cldscw5umdk"
 
@@ -30,6 +71,9 @@ size_flags_horizontal = 3
 [node name="Home" type="Button" parent="HBoxContainer/CenterContainer" unique_id=413302280]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_pu65w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nkwjh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wdlyj")
 
 [node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer" unique_id=174691582]
 layout_mode = 2
@@ -38,15 +82,21 @@ size_flags_horizontal = 3
 [node name="Continue" type="Button" parent="HBoxContainer/CenterContainer2" unique_id=974083200]
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_f2x4c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lhp7q")
+theme_override_styles/hover = SubResource("StyleBoxTexture_j11rl")
 
 [node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer" unique_id=787528560]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Restart" type="Button" parent="HBoxContainer/CenterContainer3" unique_id=454319161]
+[node name="Settings" type="Button" parent="HBoxContainer/CenterContainer3" unique_id=454319161]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbgdu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c3jo5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uraes")
 
 [connection signal="pressed" from="HBoxContainer/CenterContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer2/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer3/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterContainer3/Settings" to="." method="_on_settings_pressed"]
