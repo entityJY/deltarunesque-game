@@ -1,4 +1,5 @@
 extends Projectile
+class_name BouncingBullet
 @export var bounce_counter : int = 5
 
 ## Deals damage upon impact

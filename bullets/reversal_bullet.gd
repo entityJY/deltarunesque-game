@@ -1,4 +1,5 @@
 extends Projectile
+class_name AccelerationBullet
 
 @export var acceleration : float = -5
 

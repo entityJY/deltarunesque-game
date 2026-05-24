@@ -1,4 +1,5 @@
 extends Projectile
+class_name ArrowProjectile
 
 @export var spin = .1
 @export var child_scene : String = "res://bullets/base_bullet.tscn"

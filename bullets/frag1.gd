@@ -1,4 +1,5 @@
 extends Projectile
+class_name FragmentBullet
 
 @export var timeout_duration : float
 @export var fragment_count : int
