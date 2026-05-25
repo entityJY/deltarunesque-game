@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://c2hdpjmhgqbgd"]
+
+[ext_resource type="Script" uid="uid://60xmyt5iv1oj" path="res://scenes/level_loader.gd" id="1_rvm1m"]
+[ext_resource type="Script" uid="uid://nq612poatdgd" path="res://scenes/canvas_modulate2.gd" id="2_xr8nh"]
+[ext_resource type="AudioStream" uid="uid://dsatxyiqf2qkq" path="res://tracks/Orange.ogg" id="3_w1jp3"]
+[ext_resource type="AudioStream" uid="uid://dhkr6qu65ufh7" path="res://tracks/Yellow.ogg" id="4_mx4yg"]
+[ext_resource type="AudioStream" uid="uid://1rr4lhujyab2" path="res://tracks/Blue.ogg" id="6_07mod"]
+[ext_resource type="Texture2D" uid="uid://cj55a2vblfih4" path="res://textures/plainWhite.png" id="7_kblrs"]
+[ext_resource type="Texture2D" uid="uid://cptwpvd75yny8" path="res://textures/darkGrey.png" id="8_ax5y4"]
+[ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="9_u1gf1"]
+[ext_resource type="PackedScene" uid="uid://qj4j64rlo7bq" path="res://ui/pause_menu/pause_menu.tscn" id="10_axkgw"]
+[ext_resource type="PackedScene" uid="uid://bc1c0251c5302" path="res://ui/death_menu/death_menu.tscn" id="11_pvm0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
+size = Vector2(20, 750)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6dc"]
+size = Vector2(750, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1rx8"]
+size = Vector2(26, 1233)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8iemx"]
+size = Vector2(14.999908, 1991)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64w2a"]
+size = Vector2(33, 1266)
+
+[node name="Level" type="Node2D" unique_id=2140894002 node_paths=PackedStringArray("song_list")]
+script = ExtResource("1_rvm1m")
+song_list = [NodePath("Red"), NodePath("Orange"), NodePath("Yellow"), NodePath("Green"), NodePath("Blue")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1548270492]
+script = ExtResource("2_xr8nh")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=465149635]
+texture = ExtResource("7_kblrs")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=590509863]
+
+[node name="Walls" type="Node2D" parent="." unique_id=1746583959]
+
+[node name="Wall1" type="StaticBody2D" parent="Walls" unique_id=1090624864]
+position = Vector2(375, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1" unique_id=841353002]
+shape = SubResource("RectangleShape2D_rd3vj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall1" unique_id=1081357807]
+scale = Vector2(0.013020822, 0.8020834)
+texture = ExtResource("8_ax5y4")
+
+[node name="Wall2" type="StaticBody2D" parent="Walls" unique_id=1837252227]
+position = Vector2(-375, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2" unique_id=937647476]
+shape = SubResource("RectangleShape2D_rd3vj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall2" unique_id=1116876817]
+scale = Vector2(0.013020822, 0.8020834)
+texture = ExtResource("8_ax5y4")
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" unique_id=885749507]
+position = Vector2(0, 375)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3" unique_id=1607998366]
+shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall3" unique_id=267541068]
+position = Vector2(-9.536743e-06, 0)
+scale = Vector2(0.50130206, 0.020833373)
+texture = ExtResource("8_ax5y4")
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" unique_id=1362284127]
+position = Vector2(0, -375)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4" unique_id=132926999]
+shape = SubResource("RectangleShape2D_2q6dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Wall4" unique_id=2009980906]
+position = Vector2(-9.536743e-06, 0)
+scale = Vector2(0.50130206, 0.020833373)
+texture = ExtResource("8_ax5y4")
+
+[node name="Wall6" type="StaticBody2D" parent="Walls" unique_id=1552031301]
+position = Vector2(1031, 7)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall6" unique_id=1325168850]
+position = Vector2(3, 2.5)
+shape = SubResource("RectangleShape2D_t1rx8")
+
+[node name="Wall7" type="StaticBody2D" parent="Walls" unique_id=617008798]
+position = Vector2(24, 596)
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall7" unique_id=1916177783]
+position = Vector2(5.5, 22.5)
+shape = SubResource("RectangleShape2D_8iemx")
+
+[node name="Wall8" type="StaticBody2D" parent="Walls" unique_id=1471194416]
+position = Vector2(-1, -612)
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall8" unique_id=1694856345]
+position = Vector2(5.5, 22.5)
+shape = SubResource("RectangleShape2D_8iemx")
+
+[node name="Wall5" type="StaticBody2D" parent="Walls" unique_id=1866953431]
+position = Vector2(-1089, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall5" unique_id=251247029]
+position = Vector2(52, 11)
+shape = SubResource("RectangleShape2D_64w2a")
+
+[node name="Player" parent="." unique_id=1841742184 instance=ExtResource("9_u1gf1")]
+
+[node name="AudioPlayer1" type="AudioStreamPlayer2D" parent="." unique_id=890367423]
+
+[node name="AudioPlayer2" type="AudioStreamPlayer2D" parent="." unique_id=630785168]
+
+[node name="PauseMenu" parent="." unique_id=1300781280 instance=ExtResource("10_axkgw")]
+
+[node name="DeathMenu" parent="." unique_id=1687582225 instance=ExtResource("11_pvm0q")]
+
+[node name="Blue" type="AudioStreamPlayer" parent="." unique_id=1911324266]
+stream = ExtResource("6_07mod")
+
+[node name="Orange" type="AudioStreamPlayer" parent="." unique_id=1059708120]
+stream = ExtResource("3_w1jp3")
+
+[node name="Red" type="AudioStreamPlayer" parent="." unique_id=851601120]
+stream = ExtResource("3_w1jp3")
+
+[node name="Yellow" type="AudioStreamPlayer" parent="." unique_id=1870844117]
+stream = ExtResource("4_mx4yg")
+
+[node name="Green" type="AudioStreamPlayer" parent="." unique_id=971070738]
+stream = ExtResource("4_mx4yg")
+
+[connection signal="player_killed" from="Player" to="DeathMenu" method="_on_player_player_killed"]
