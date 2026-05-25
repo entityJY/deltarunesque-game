@@ -9,7 +9,7 @@ radius = 86.05
 [node name="BaseBullet" type="Area2D" unique_id=1312338901 node_paths=PackedStringArray("sprite")]
 collision_mask = 10
 script = ExtResource("2_4bp3c")
-spawnDelay = 10
+spawnDelay = 6
 sprite = NodePath("BulletSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083842383]

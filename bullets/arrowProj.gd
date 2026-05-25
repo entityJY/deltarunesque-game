@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 			var newBullet = childInstance.instantiate()
 			newBullet.direction = direction.rotated(rotation)*1.5
 			newBullet.global_position = global_position
+			newBullet.scale *= scale
 			get_parent().add_child(newBullet)
 			spawnCounter = 0
 			

@@ -8,7 +8,6 @@
 radius = 98.85
 
 [node name="FragBullet" type="Area2D" unique_id=459781445 node_paths=PackedStringArray("sprite")]
-position = Vector2(102, 575)
 collision_mask = 10
 script = ExtResource("1_k8cwq")
 timeout_duration = 1.0

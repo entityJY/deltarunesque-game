@@ -123,11 +123,11 @@ func bullet_init_settings(bullet_index : int, wave_index : int):
 		
 	else:
 		var val = rng.randfn(playerChar.global_position.y, sd) 
-		var result = int(clamp(val, -530, 530))
+		var result = int(clamp(val, -540, 540))
 		if newBullet.direction.x < 0:
-			newBullet.global_position = Vector2(900, result)
+			newBullet.global_position = Vector2(960, result)
 		else:
-			newBullet.global_position = Vector2(-900, result)
+			newBullet.global_position = Vector2(-960, result)
 		
 	
 	newBullet.scale = bulletScale

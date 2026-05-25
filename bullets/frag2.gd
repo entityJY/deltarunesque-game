@@ -21,13 +21,14 @@ func initBullet() -> void:
 		var newBullet = child_scene.instantiate()
 		childBullets.append(newBullet)
 		newBullet.direction = direction.rotated(deg_to_rad(360.0/fragment_count * f))
-		newBullet.scale /= 2
+		newBullet.scale *= (0.5*scale)
 		if newBullet is FragmentBullet:
 			newBullet.timeout_duration = 3.0
 	
 	# add all bullets
 	for childFragment in childBullets:
-		childFragment.global_position = global_position + childFragment.direction*100
+		childFragment.global_position = global_position + childFragment.direction*50
 		get_parent().add_child(childFragment)
 
+	move = true
 	disable()

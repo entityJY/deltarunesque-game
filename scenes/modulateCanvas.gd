@@ -32,12 +32,12 @@ func _process(delta: float) -> void:
 	if audioPlayer1.stream != null and audioPlayer1.playing:
 		if (audioPlayer1.stream.get_length() - audioPlayer1.get_playback_position()) < fadeTime and !swapping:
 			swapping = true
-			stageSwap();
+			stageSwap()
 			
 	if audioPlayer2.stream != null and audioPlayer2.playing:
 		if (audioPlayer2.stream.get_length() - audioPlayer2.get_playback_position()) < fadeTime and !swapping:
 			swapping = true
-			stageSwap();
+			stageSwap()
 			
 	pass
 	
@@ -58,7 +58,7 @@ func stageSwap():
 		2: 
 			targetColor = Color.YELLOW
 			
-		3:
+		3:	
 			targetColor = Color.LIME_GREEN
 			
 		4: 
@@ -85,11 +85,7 @@ func stageSwap():
 	audioIn.tween_property(newPlayer, "volume_db", 0.0, fadeTime)
 	audioOut.tween_property(prevPlayer, "volume_db", fadeDB, fadeTime)
 	
-	#if stages[stage] != null:
-		#activeStage = stages[stage].instantiate()
-		#get_parent().add_child.call_deferred(activeStage)
-		#activeStage.global_position = global_position
-		#activeStage.player = player
+	
 	
 	await get_tree().create_timer(fadeTime).timeout
 	

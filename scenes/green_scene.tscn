@@ -1,9 +1,8 @@
-[gd_scene format=3 uid="uid://ca4q85man0xnq"]
+[gd_scene format=3 uid="uid://c7b6koht81no0"]
 
-[ext_resource type="Script" uid="uid://dasqv4qt7mn2f" path="res://scenes/level_test.gd" id="1_f6w1b"]
-[ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="2_2l35x"]
-[ext_resource type="AudioStream" uid="uid://dsatxyiqf2qkq" path="res://tracks/Orange.ogg" id="3_qagr8"]
-[ext_resource type="AudioStream" uid="uid://1rr4lhujyab2" path="res://tracks/Blue.ogg" id="3_rsthe"]
+[ext_resource type="Script" uid="uid://cib5q201avpim" path="res://scenes/green_test.gd" id="1_7orws"]
+[ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="2_5lywq"]
+[ext_resource type="AudioStream" uid="uid://d32qr3gbvuket" path="res://tracks/Green.ogg" id="3_7orws"]
 
 [sub_resource type="Gradient" id="Gradient_xfskc"]
 colors = PackedColorArray(0.47601238, 0.21433778, 4.813075e-08, 1, 0, 0, 0, 1)
@@ -28,11 +27,10 @@ size = Vector2(33, 1266)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6dc"]
 size = Vector2(750, 20)
 
-[node name="Level2" type="Node2D" unique_id=2140894002 node_paths=PackedStringArray("player", "song_list")]
-script = ExtResource("1_f6w1b")
-player = NodePath("Player")
-current_bpm = 0
-song_list = [NodePath("Orange"), NodePath("Blue")]
+[node name="Level" type="Node2D" unique_id=2140894002 node_paths=PackedStringArray("current_song", "song_list")]
+script = ExtResource("1_7orws")
+current_song = NodePath("Orange")
+song_list = [NodePath("Orange")]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=465149635]
 texture = SubResource("GradientTexture2D_qagr8")
@@ -111,10 +109,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4" unique_id=132926999]
 shape = SubResource("RectangleShape2D_2q6dc")
 
-[node name="Player" parent="." unique_id=1841742184 instance=ExtResource("2_2l35x")]
-
-[node name="Blue" type="AudioStreamPlayer" parent="." unique_id=215229610]
-stream = ExtResource("3_rsthe")
+[node name="Player" parent="." unique_id=1841742184 instance=ExtResource("2_5lywq")]
 
 [node name="Orange" type="AudioStreamPlayer" parent="." unique_id=918302856]
-stream = ExtResource("3_qagr8")
+stream = ExtResource("3_7orws")
