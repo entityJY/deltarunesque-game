@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d375kjkhcgc54"]
+
+[ext_resource type="Script" uid="uid://l3uxvxy5c6p" path="res://bullets/bullet_spawners/random_laser_horizontal.gd" id="1_afgss"]
+[ext_resource type="PackedScene" uid="uid://dmrvmvs4gvn4a" path="res://bullets/laser.tscn" id="2_q2315"]
+
+[node name="RandomLaserHorizontal" type="Marker2D" unique_id=252920966]
+script = ExtResource("1_afgss")
+laser = ExtResource("2_q2315")

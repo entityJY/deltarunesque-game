@@ -28,8 +28,8 @@ func _ready() -> void:
 		spawn_duration_checker()
 	# We can also restrict the number of things spawned by this spanwer
 	while spawned_number < max_spawned:
-		await get_tree().create_timer(spawnTimeout).timeout
 		init_fragment()
+		await get_tree().create_timer(spawnTimeout).timeout
 	queue_free()
 
 

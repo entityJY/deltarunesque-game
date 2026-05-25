@@ -13,12 +13,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("dash"):
-		menu_open = !menu_open
-		if menu_open:
-			open_menu()
-		else:
-			close_menu()
+	pass
 
 func open_menu() -> void:
 	if movement_tween:

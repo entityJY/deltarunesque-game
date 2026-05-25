@@ -2,6 +2,9 @@ extends Node2D
 
 @export var player : Player
 
+var songChoices = [1, 4]
+var stages_played = 0
+
 @export var current_song : AudioStreamPlayer
 @export var current_bpm : int = 146
 ## Beatmap that consists of a list of dictionaries.
@@ -14,7 +17,9 @@ extends Node2D
 @export var song_list : Array[AudioStreamPlayer]= []
 
 var song_maps = [
-	{"current_song" : 0,
+	{},
+	# ORANGE
+	{"current_song" : 1,
 "current_bpm" : 146,
 "beatmap": 
 	[
@@ -173,7 +178,11 @@ var song_maps = [
 	"time" : 79.75},
 	
 ]},
-{"current_song" : 1,
+{},
+{},
+
+# BLUE
+{"current_song" : 4,
 "current_bpm" : 100,
 "beatmap": 
 	[
@@ -577,7 +586,6 @@ var song_maps = [
 
 var loaded_song = {}
 var current_notes = []
-
 var current_note = 0
 
 func _ready() -> void:
@@ -586,9 +594,20 @@ func _ready() -> void:
 	if player == null:
 		player = get_node_or_null("Player")
 	
-	# Default
-	load_song(song_maps[1])
+	## Default
+	get_next_song()
 	
+	
+func get_next_song():
+	if stages_played % len(songChoices) == 0:
+		songChoices.shuffle()
+	var currentStage = songChoices[stages_played % len(songChoices)]
+	$CanvasModulate.stageSwap(currentStage)
+	load_song(song_maps[currentStage])
+	await song_list[currentStage].finished
+	print("it done")
+	stages_played += 1
+	get_next_song()
 
 func load_song(song_data):
 	if song_data["current_song"] >= len(song_list):
