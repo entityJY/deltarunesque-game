@@ -160,7 +160,7 @@ _data = {
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1858030202 node_paths=PackedStringArray("animation_player", "escape_menu_button", "settings_menu")]
 script = ExtResource("1_oa53l")
-play_scene = "uid://dolvx4je86dxv"
+play_scene = "uid://c2hdpjmhgqbgd"
 animation_player = NodePath("AnimationPlayer")
 escape_menu_button = NodePath("EscapeMenuButton")
 settings_menu = NodePath("SettingsPanel")
@@ -273,6 +273,10 @@ text = "                     Credits
                         blah"
 
 [node name="SettingsPanel" parent="." unique_id=25184077 node_paths=PackedStringArray("button_sfx", "animation_player") instance=ExtResource("12_qvn4f")]
+offset_left = -480.0
+offset_top = -1290.0
+offset_right = 1116.0
+offset_bottom = -235.0
 button_sfx = NodePath("../ButtonSFX")
 animation_player = NodePath("../AnimationPlayer")
 

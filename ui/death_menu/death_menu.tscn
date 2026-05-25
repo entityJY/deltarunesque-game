@@ -37,7 +37,7 @@ button_sfx = NodePath("ButtonPressSFX")
 container = NodePath("PanelContainer")
 score_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/CenterContainer/ScoreLabel")
 main_menu_scene = "uid://b7cldscw5umdk"
-play_scene = "uid://dolvx4je86dxv"
+play_scene = "uid://c2hdpjmhgqbgd"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1181804268]
 custom_minimum_size = Vector2(640, 360)

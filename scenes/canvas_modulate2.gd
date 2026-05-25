@@ -64,7 +64,7 @@ func stageSwap(stageSelect):
 			nextPlayer = get_parent().get_node("Green")
 			
 		4: 
-			targetColor = Color.BLUE
+			targetColor = Color.AQUA
 			nextPlayer = get_parent().get_node("Blue")
 			
 	if tween:
