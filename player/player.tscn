@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://2nm2m32awiqn" path="res://player/assets/4th Life.png" id="4_yw30f"]
 [ext_resource type="Texture2D" uid="uid://cstdp3knjeyeq" path="res://player/assets/1st Life.png" id="5_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://hiwwh514fge7" path="res://player/assets/2nd Life.png" id="6_boad6"]
+[ext_resource type="AudioStream" uid="uid://b65ekg4aibt8q" path="res://tracks/Blarghe-_1_.ogg" id="8_rgyib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 16.0
@@ -67,6 +68,9 @@ collision_layer = 0
 
 [node name="Collision" type="CollisionShape2D" parent="OuterHitbox" unique_id=1160421124]
 shape = SubResource("CircleShape2D_g1dw6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=748221847]
+stream = ExtResource("8_rgyib")
 
 [connection signal="area_entered" from="OuterHitbox" to="." method="_on_outer_hitbox_area_entered"]
 [connection signal="area_exited" from="OuterHitbox" to="." method="_on_outer_hitbox_area_exited"]

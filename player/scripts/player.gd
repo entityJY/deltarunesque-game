@@ -8,6 +8,7 @@ enum dash_states {
 	DASH_COOLDOWN,
 }
 
+
 # 16 25 34 43 52
 # 
 # 32 44 56 68 80
@@ -21,6 +22,8 @@ enum dash_states {
 @export var dash_distance: float = 300.0
 @export var dash_time: float = 0.15
 @export var dash_cooldown: float = 0.4
+@export var hit: AudioStreamPlayer2D
+
 var dash_speed: float
 var dash_timer: Timer
 var last_direction: Vector2
@@ -70,6 +73,7 @@ func hurt(damage: int) -> void:
 	if damage > 0:
 		damage *= -1
 	shield_level += damage
+	hit.play()
 
 
 func movement(_delta: float) -> void:
