@@ -2,7 +2,7 @@ extends Node2D
 
 @export var player : Player
 
-var songChoices = [0, 1, 2, 4]
+var songChoices = [0, 1, 2, 3, 4]
 var stages_played = 0
 
 @export var current_song : AudioStreamPlayer
@@ -335,7 +335,7 @@ var song_maps = [
 				"lineRange" : Vector2(0, 900),
 				"baseSpeed" : 850,
 				"baseAcceleration" : -10,
-				"spawnDuration" : 60,
+				"spawnDuration" : 0,
 				"time" : 64
 			},
 			{
@@ -345,7 +345,7 @@ var song_maps = [
 				"lineRange" : Vector2(0, 900),
 				"baseSpeed" : -850,
 				"baseAcceleration" : 10,
-				"spawnDuration" : 60,
+				"spawnDuration" : 0,
 				"time" : 70
 			},
 			{
@@ -700,7 +700,324 @@ var song_maps = [
 		]
 	},
 	# GREEN
-	{},
+	{
+	"current_song" : 3,
+	"current_bpm" : 97,
+	"beatmap": 
+		[{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 0},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 3},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 4},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 7},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 8},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 11},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 12},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 15},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/frag_frag_bullet.tscn")],
+		"bulletInitSettings": [{"speed" : 200}],
+		"spawnTimeout" : 2.4742,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 17,
+		"playerChar" : "",
+		"rotation" : 3*PI/2,
+		"sd" : 250,
+		"bulletScale" : Vector2(.3, .3),
+		"rotational" : 180,
+		#"manualMode" : true,
+		"time" : 16},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 16},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 19},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 20},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 23},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 24},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 27},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 28},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 31},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 32},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 35},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 36},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .3093,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : .4,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 0,
+		"rotation" : PI,
+		"time" : 39},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"time" : 40},
+		
+		{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+		"bullets" : [load("res://bullets/reversalBullet.tscn")],
+		"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+		"spawnTimeout" : .6186,
+		"waveCount" : 1,
+		"position" : Vector2(0, 0),
+		"spawnDuration" : 1.5,
+		"playerChar" : "",
+		"sd" : 250,
+		"bulletScale" : Vector2(.07, .07),
+		"rotational" : 180,
+		"rotation" : PI,
+		"time" : 44},
+		
+		]
+	},
 	# BLUE
 	{
 		"current_song" : 4,
@@ -1128,8 +1445,7 @@ func get_next_song():
 	load_song(song_maps[currentStage])
 	await song_list[currentStage].finished
 	print("it done")
-	stages_played += 1
-	get_next_song()
+	
 
 func load_song(song_data):
 	current_note = 0
@@ -1236,9 +1552,11 @@ func initialize_song():
 		if is_instance_valid(spawner):
 			spawner.queue_free()
 
+	stages_played += 1
+	get_next_song()
+
 func _process(_delta: float) -> void:
 	if current_song and current_song.playing:
-		print(current_song)
 		var time = current_song.get_playback_position() + AudioServer.get_time_since_last_mix()
 		time -= AudioServer.get_output_latency()
 		var beat_duration = 60.0/current_bpm
@@ -1248,8 +1566,6 @@ func _process(_delta: float) -> void:
 		while time > (beatmap[current_note]["time"] * beat_duration):
 			#print(time, " vs ", beatmap[current_note]["time"] * beat_duration)
 			if !is_instance_valid(current_notes[current_note]):
-				print("instance not valid")
-				current_notes.remove_at(current_note)
 				return
 			current_notes[current_note].start_spawning()
 			current_note += 1

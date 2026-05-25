@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://qj4j64rlo7bq" path="res://ui/pause_menu/pause_menu.tscn" id="10_axkgw"]
 [ext_resource type="AudioStream" uid="uid://dmbkika2j0lck" path="res://tracks/Red.ogg" id="10_sbqk0"]
 [ext_resource type="PackedScene" uid="uid://bc1c0251c5302" path="res://ui/death_menu/death_menu.tscn" id="11_pvm0q"]
+[ext_resource type="AudioStream" uid="uid://d32qr3gbvuket" path="res://tracks/Green.ogg" id="12_rvm1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
 size = Vector2(20, 750)
@@ -153,6 +154,7 @@ stream = ExtResource("10_sbqk0")
 stream = ExtResource("4_mx4yg")
 
 [node name="Green" type="AudioStreamPlayer" parent="." unique_id=971070738]
-stream = ExtResource("4_mx4yg")
+stream = ExtResource("12_rvm1m")
+bus = &"Music"
 
 [connection signal="player_killed" from="Player" to="DeathMenu" method="_on_player_player_killed"]
