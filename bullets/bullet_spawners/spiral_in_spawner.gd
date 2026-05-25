@@ -26,12 +26,16 @@ class_name SpiralSpawner
 
 ## how long a beat of the song lasts for
 @export var bpm: float
-var beat_duration: float
+## the audio stream being played
+@export var audio_stream: AudioStreamPlayer
+## what beat the spawner starts firing
+@export var time: float
 
-var running = true
+var spawning_enabled: bool = false
+var next_bullet_spawn: float
+var spawn_position: Vector2
 
 func _ready() -> void:
-	beat_duration = 60.0/bpm
 	if !rotates_clockwise:
 		rad_between_bullet *= -1
 	if debug_spawning:
@@ -39,20 +43,26 @@ func _ready() -> void:
 		start_spawning()
 
 func start_spawning():
-	var spawn_position = Vector2(spawn_radius, 0)
+	process_mode = Node.PROCESS_MODE_INHERIT
+	spawning_enabled = true
+	spawn_position = Vector2(spawn_radius, 0)
 	spawn_position = spawn_position.rotated(initial_rad)
-	running_timer()
-	while running:
+
+func _process(_delta: float) -> void:
+	if !spawning_enabled: return
+
+	var song_beat = (audio_stream.get_playback_position() + AudioServer.get_time_since_last_mix()) * bpm / 60.0 - time
+	if song_beat > firing_time:
+		queue_free()
+	
+	if song_beat > next_bullet_spawn:
 		var new_bullet: Projectile = bullet.instantiate()
 		new_bullet.speed = bullet_speed
 		new_bullet.direction = (Vector2.ZERO - spawn_position).normalized()
 		new_bullet.scale = Vector2(bullet_radius/325, bullet_radius/325)
 		new_bullet.position = spawn_position
+
 		get_parent().add_child(new_bullet)
-		await get_tree().create_timer(beats_per_bullet * beat_duration).timeout
+
 		spawn_position = spawn_position.rotated(rad_between_bullet)
-
-
-func running_timer() -> void:
-	await get_tree().create_timer(firing_time * beat_duration).timeout
-	running = false
+		next_bullet_spawn += beats_per_bullet
