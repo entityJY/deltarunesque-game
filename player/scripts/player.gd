@@ -114,6 +114,7 @@ func set_shield_level(level: int) -> void:
 		death_sprite.visible = true
 		for i in range(5):
 			shield_sprite_array[i].visible = false
+		hitbox_disabled = true
 		return
 	if level > 4:
 		return
@@ -133,11 +134,13 @@ func set_shield_level(level: int) -> void:
 
 
 func _on_outer_hitbox_area_entered(area: Area2D) -> void:
+	if hitbox_disabled:
+		return
 	if (area is Projectile or area is Laser):
 		grazing_bullets[area] = 0.0
 
 func _on_outer_hitbox_area_exited(area: Area2D) -> void:
-	if (area is Projectile or area is Laser):
+	if (area is Projectile or area is Laser) and grazing_bullets.has(area):
 		points += int(grazing_bullets[area] * 100)			# 100 points per second spent grazing
 		grazing_bullets.erase(area)
 

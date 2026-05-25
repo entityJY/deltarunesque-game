@@ -39,4 +39,4 @@ func _on_restart_button_pressed() -> void:
 
 func _on_player_player_killed(score: int) -> void:
 	open_menu()
-	score_label.text += str(score)
+	score_label.text = "Score: " + str(score)

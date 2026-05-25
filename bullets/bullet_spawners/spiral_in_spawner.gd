@@ -33,9 +33,9 @@ func _ready() -> void:
 	beat_duration = 60.0/bpm
 	if !rotates_clockwise:
 		rad_between_bullet *= -1
-	if debug_spawning:
-		position = Vector2(1920.0/2, 1080.0/2)
-		start_spawning()
+	# if debug_spawning:
+	# 	position = Vector2(1920.0/2, 1080.0/2)
+	# 	start_spawning()
 
 func start_spawning():
 	var spawn_position = Vector2(spawn_radius, 0)
