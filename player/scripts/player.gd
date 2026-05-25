@@ -39,6 +39,8 @@ var points: int = 0
 
 var grazing_bullets: Dictionary[Area2D, float] = {}
 
+var hitbox_disabled = false
+
 signal player_killed(score: int)
 
 
@@ -104,6 +106,9 @@ func enable_dash() -> void:
 
 
 func set_shield_level(level: int) -> void:
+	if hitbox_disabled:
+		return
+	disable_hitbox()
 	if level < 0:
 		player_killed.emit(points)
 		death_sprite.visible = true
@@ -135,3 +140,8 @@ func _on_outer_hitbox_area_exited(area: Area2D) -> void:
 	if (area is Projectile or area is Laser):
 		points += int(grazing_bullets[area] * 100)			# 100 points per second spent grazing
 		grazing_bullets.erase(area)
+
+func disable_hitbox() -> void:
+	hitbox_disabled = true
+	await get_tree().create_timer(1).timeout
+	hitbox_disabled = false
