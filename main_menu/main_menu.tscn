@@ -83,7 +83,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(480, -750)]
+"values": [Vector2(162, -1139)]
 }
 
 [sub_resource type="Animation" id="Animation_3shxk"]
@@ -115,7 +115,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(480, 226.5), Vector2(480, -750)]
+"values": [Vector2(162, 16), Vector2(162, -1139)]
 }
 
 [sub_resource type="Animation" id="Animation_d3a7t"]
@@ -147,7 +147,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(480, -750), Vector2(480, 226.5)]
+"values": [Vector2(162, -1139), Vector2(162, 16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3shxk"]
@@ -275,10 +275,10 @@ text = "                     Credits
                         blah"
 
 [node name="SettingsPanel" parent="." unique_id=25184077 node_paths=PackedStringArray("button_sfx", "animation_player") instance=ExtResource("12_qvn4f")]
-offset_left = -480.0
-offset_top = -1290.0
-offset_right = 1116.0
-offset_bottom = -235.0
+offset_left = -798.0
+offset_top = -1679.0
+offset_right = 798.0
+offset_bottom = -624.0
 button_sfx = NodePath("../ButtonSFX")
 animation_player = NodePath("../AnimationPlayer")
 
