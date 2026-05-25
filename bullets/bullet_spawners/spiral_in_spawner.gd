@@ -24,13 +24,6 @@ class_name SpiralSpawner
 ## radius of each bullet
 @export var bullet_radius: float
 
-## how long a beat of the song lasts for
-@export var bpm: float
-## the audio stream being played
-@export var audio_stream: AudioStreamPlayer
-## what beat the spawner starts firing
-@export var time: float
-
 var spawning_enabled: bool = false
 var next_bullet_spawn: float
 var spawn_position: Vector2
@@ -43,7 +36,6 @@ func _ready() -> void:
 		start_spawning()
 
 func start_spawning():
-	process_mode = Node.PROCESS_MODE_INHERIT
 	spawning_enabled = true
 	spawn_position = Vector2(spawn_radius, 0)
 	spawn_position = spawn_position.rotated(initial_rad)

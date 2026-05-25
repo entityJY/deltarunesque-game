@@ -1187,6 +1187,8 @@ func _ready() -> void:
 	
 	
 func get_next_song():
+	if stages_played % len(songChoices) == 0:	# check if player has played through all the levels
+		songChoices.shuffle()
 	var currentStage = songChoices[stages_played % len(songChoices)]
 	canvas_modulate.stageSwap(currentStage)
 	
@@ -1194,8 +1196,6 @@ func get_next_song():
 	
 
 func load_song(song_data: Dictionary):
-	if stages_played % len(songChoices) == 0:	# check if player has played through all the levels
-		songChoices.shuffle()
 	current_note = 0
 	current_notes.clear()
 	if song_data["current_song"] >= len(song_list):
@@ -1214,7 +1214,6 @@ func initialize_song():
 		var new_note = load(note["spawnerType"])
 		var note_instance = new_note.instantiate()
 		current_notes.append(note_instance)
-		note_instance.process_mode = Node.PROCESS_MODE_DISABLED
 		
 		# Setting note parameters
 		for property in note.keys():

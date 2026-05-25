@@ -20,13 +20,6 @@ class_name RandomHorizontalLaserSpawner
 @export var laser_width: float = 80
 var laser_size : Vector2 = Vector2(200, 1200)
 
-## how long a beat of the song lasts for
-@export var bpm: float
-## the audio stream being played
-@export var audio_stream: AudioStreamPlayer
-## what beat the spawner starts firing
-@export var time: float
-
 var spawning_enabled: bool = false
 var next_laser_spawn: float
 
@@ -36,7 +29,6 @@ func _ready() -> void:
 		start_spawning()
 
 func start_spawning():
-	process_mode = Node.PROCESS_MODE_INHERIT
 	spawning_enabled = true
 
 func _process(_delta: float) -> void:

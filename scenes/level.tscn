@@ -1,17 +1,18 @@
-[gd_scene format=3 uid="uid://dolvx4je86dxv"]
+[gd_scene format=3 uid="uid://c2hdpjmhgqbgd"]
 
-[ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="1_2q6dc"]
-[ext_resource type="Texture2D" uid="uid://cj55a2vblfih4" path="res://textures/plainWhite.png" id="1_w7c3h"]
-[ext_resource type="AudioStream" uid="uid://bpyllf85gkha5" path="res://tracks/RedJohnTalking.mp3" id="2_8c41q"]
-[ext_resource type="AudioStream" uid="uid://dsatxyiqf2qkq" path="res://tracks/Orange.ogg" id="3_8c41q"]
-[ext_resource type="Script" uid="uid://c7pm8qfxrre85" path="res://scenes/modulateCanvas.gd" id="4_mx8sn"]
-[ext_resource type="AudioStream" uid="uid://dhkr6qu65ufh7" path="res://tracks/Yellow.ogg" id="4_olg7q"]
-[ext_resource type="AudioStream" uid="uid://dgtn6guu7a0ra" path="res://tracks/Green.mp3" id="5_8iemx"]
-[ext_resource type="PackedScene" uid="uid://qj4j64rlo7bq" path="res://ui/pause_menu/pause_menu.tscn" id="5_ppgk2"]
-[ext_resource type="AudioStream" uid="uid://1rr4lhujyab2" path="res://tracks/Blue.ogg" id="6_t1rx8"]
-[ext_resource type="Texture2D" uid="uid://cptwpvd75yny8" path="res://textures/darkGrey.png" id="8_t1rx8"]
-[ext_resource type="PackedScene" uid="uid://cae55xn8o3hn6" path="res://ui/score/score.tscn" id="11_8iemx"]
-[ext_resource type="PackedScene" uid="uid://bc1c0251c5302" path="res://ui/death_menu/death_menu.tscn" id="12_8iemx"]
+[ext_resource type="Script" uid="uid://60xmyt5iv1oj" path="res://scenes/level_loader.gd" id="1_64w2a"]
+[ext_resource type="Script" uid="uid://nq612poatdgd" path="res://scenes/level_color_switcher.gd" id="2_fpun6"]
+[ext_resource type="Texture2D" uid="uid://cj55a2vblfih4" path="res://textures/plainWhite.png" id="3_wc255"]
+[ext_resource type="Texture2D" uid="uid://0g52mq41tsag" path="res://textures/lightGrey.png" id="4_arp2o"]
+[ext_resource type="PackedScene" uid="uid://qoag6cs0222u" path="res://player/player.tscn" id="5_ux5qa"]
+[ext_resource type="PackedScene" uid="uid://qj4j64rlo7bq" path="res://ui/pause_menu/pause_menu.tscn" id="6_82cfe"]
+[ext_resource type="PackedScene" uid="uid://bc1c0251c5302" path="res://ui/death_menu/death_menu.tscn" id="7_gunhw"]
+[ext_resource type="AudioStream" uid="uid://1rr4lhujyab2" path="res://tracks/Blue.ogg" id="8_8gofh"]
+[ext_resource type="AudioStream" uid="uid://dsatxyiqf2qkq" path="res://tracks/Orange.ogg" id="9_h6wmr"]
+[ext_resource type="AudioStream" uid="uid://dmbkika2j0lck" path="res://tracks/Red.ogg" id="10_pqd0y"]
+[ext_resource type="AudioStream" uid="uid://dhkr6qu65ufh7" path="res://tracks/Yellow.ogg" id="11_5k0ak"]
+[ext_resource type="AudioStream" uid="uid://d32qr3gbvuket" path="res://tracks/Green.ogg" id="12_wu01b"]
+[ext_resource type="PackedScene" uid="uid://cae55xn8o3hn6" path="res://ui/score/score.tscn" id="13_3ies3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
 size = Vector2(20, 750)
@@ -28,15 +29,20 @@ size = Vector2(14.999908, 1991)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64w2a"]
 size = Vector2(33, 1266)
 
-[node name="Level" type="Node2D" unique_id=2140894002]
+[node name="Level" type="Node2D" unique_id=2140894002 node_paths=PackedStringArray("player", "song_list", "canvas_modulate")]
+script = ExtResource("1_64w2a")
+player = NodePath("Player")
+song_list = [NodePath("Red"), NodePath("Orange"), NodePath("Yellow"), NodePath("Green"), NodePath("Blue")]
+canvas_modulate = NodePath("CanvasModulate")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1548270492]
-script = ExtResource("4_mx8sn")
-tracks = Array[AudioStream]([ExtResource("2_8c41q"), ExtResource("3_8c41q"), ExtResource("4_olg7q"), ExtResource("5_8iemx"), ExtResource("6_t1rx8")])
-fadeTime = 3.0
+script = ExtResource("2_fpun6")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=465149635]
-texture = ExtResource("1_w7c3h")
+modulate = Color(0.22130162, 0.22130162, 0.22130159, 1)
+position = Vector2(-2, 2)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wc255")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=590509863]
 
@@ -52,7 +58,7 @@ shape = SubResource("RectangleShape2D_rd3vj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls/Wall1" unique_id=1081357807]
 scale = Vector2(0.013020822, 0.8020834)
-texture = ExtResource("8_t1rx8")
+texture = ExtResource("4_arp2o")
 
 [node name="Wall2" type="StaticBody2D" parent="Walls" unique_id=1837252227]
 position = Vector2(-375, 0)
@@ -64,7 +70,7 @@ shape = SubResource("RectangleShape2D_rd3vj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls/Wall2" unique_id=1116876817]
 scale = Vector2(0.013020822, 0.8020834)
-texture = ExtResource("8_t1rx8")
+texture = ExtResource("4_arp2o")
 
 [node name="Wall3" type="StaticBody2D" parent="Walls" unique_id=885749507]
 position = Vector2(0, 375)
@@ -77,7 +83,7 @@ shape = SubResource("RectangleShape2D_2q6dc")
 [node name="Sprite2D" type="Sprite2D" parent="Walls/Wall3" unique_id=267541068]
 position = Vector2(-9.536743e-06, 0)
 scale = Vector2(0.50130206, 0.020833373)
-texture = ExtResource("8_t1rx8")
+texture = ExtResource("4_arp2o")
 
 [node name="Wall4" type="StaticBody2D" parent="Walls" unique_id=1362284127]
 position = Vector2(0, -375)
@@ -90,7 +96,7 @@ shape = SubResource("RectangleShape2D_2q6dc")
 [node name="Sprite2D" type="Sprite2D" parent="Walls/Wall4" unique_id=2009980906]
 position = Vector2(-9.536743e-06, 0)
 scale = Vector2(0.50130206, 0.020833373)
-texture = ExtResource("8_t1rx8")
+texture = ExtResource("4_arp2o")
 
 [node name="Wall6" type="StaticBody2D" parent="Walls" unique_id=1552031301]
 position = Vector2(1031, 7)
@@ -130,17 +136,30 @@ collision_mask = 0
 position = Vector2(52, 11)
 shape = SubResource("RectangleShape2D_64w2a")
 
-[node name="Player" parent="." unique_id=1841742184 instance=ExtResource("1_2q6dc")]
+[node name="Player" parent="." unique_id=1841742184 instance=ExtResource("5_ux5qa")]
 
-[node name="AudioPlayer1" type="AudioStreamPlayer2D" parent="." unique_id=890367423]
+[node name="PauseMenu" parent="." unique_id=1300781280 node_paths=PackedStringArray("death_menu") instance=ExtResource("6_82cfe")]
+death_menu = NodePath("../DeathMenu")
 
-[node name="AudioPlayer2" type="AudioStreamPlayer2D" parent="." unique_id=630785168]
+[node name="DeathMenu" parent="." unique_id=1687582225 instance=ExtResource("7_gunhw")]
 
-[node name="PauseMenu" parent="." unique_id=1300781280 instance=ExtResource("5_ppgk2")]
+[node name="Blue" type="AudioStreamPlayer" parent="." unique_id=1911324266]
+stream = ExtResource("8_8gofh")
 
-[node name="Score" parent="." unique_id=1720828468 node_paths=PackedStringArray("player") instance=ExtResource("11_8iemx")]
+[node name="Orange" type="AudioStreamPlayer" parent="." unique_id=1059708120]
+stream = ExtResource("9_h6wmr")
+
+[node name="Red" type="AudioStreamPlayer" parent="." unique_id=851601120]
+stream = ExtResource("10_pqd0y")
+
+[node name="Yellow" type="AudioStreamPlayer" parent="." unique_id=1870844117]
+stream = ExtResource("11_5k0ak")
+
+[node name="Green" type="AudioStreamPlayer" parent="." unique_id=971070738]
+stream = ExtResource("12_wu01b")
+bus = &"Music"
+
+[node name="Score" parent="." unique_id=1720828468 node_paths=PackedStringArray("player") instance=ExtResource("13_3ies3")]
 player = NodePath("../Player")
-
-[node name="DeathMenu" parent="." unique_id=1687582225 instance=ExtResource("12_8iemx")]
 
 [connection signal="player_killed" from="Player" to="DeathMenu" method="_on_player_player_killed"]
