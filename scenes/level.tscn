@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://qj4j64rlo7bq" path="res://ui/pause_menu/pause_menu.tscn" id="5_ppgk2"]
 [ext_resource type="AudioStream" uid="uid://1rr4lhujyab2" path="res://tracks/Blue.ogg" id="6_t1rx8"]
 [ext_resource type="Texture2D" uid="uid://cptwpvd75yny8" path="res://textures/darkGrey.png" id="8_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://cae55xn8o3hn6" path="res://ui/score/score.tscn" id="11_8iemx"]
 [ext_resource type="PackedScene" uid="uid://bc1c0251c5302" path="res://ui/death_menu/death_menu.tscn" id="12_8iemx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
@@ -136,6 +137,9 @@ shape = SubResource("RectangleShape2D_64w2a")
 [node name="AudioPlayer2" type="AudioStreamPlayer2D" parent="." unique_id=630785168]
 
 [node name="PauseMenu" parent="." unique_id=1300781280 instance=ExtResource("5_ppgk2")]
+
+[node name="Score" parent="." unique_id=1720828468 node_paths=PackedStringArray("player") instance=ExtResource("11_8iemx")]
+player = NodePath("../Player")
 
 [node name="DeathMenu" parent="." unique_id=1687582225 instance=ExtResource("12_8iemx")]
 
