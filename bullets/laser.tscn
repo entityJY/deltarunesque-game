@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmrvmvs4gvn4a"]
 
 [ext_resource type="Script" uid="uid://cpyhxb78xtbba" path="res://bullets/laser.gd" id="1_hggxy"]
-[ext_resource type="Texture2D" uid="uid://dwge7ikg6ve4x" path="res://bullets/laser_sprite.png" id="2_42eio"]
+[ext_resource type="Texture2D" uid="uid://dwge7ikg6ve4x" path="res://bullets/assets/laser_sprite.png" id="2_42eio"]
 [ext_resource type="Texture2D" uid="uid://8fnc0lfhh6" path="res://icon.svg" id="2_jg26s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42eio"]

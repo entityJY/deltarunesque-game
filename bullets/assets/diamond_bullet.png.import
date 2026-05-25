@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnejhq5t5kr2c"
-path="res://.godot/imported/circle_bullet1.png-665616f166f887362d63b43d8db8a5d4.ctex"
+uid="uid://buo8ami7dfepj"
+path="res://.godot/imported/diamond_bullet.png-bd9ec2e60826bc11f3557845e3d10f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bullets/circle_bullet1.png"
-dest_files=["res://.godot/imported/circle_bullet1.png-665616f166f887362d63b43d8db8a5d4.ctex"]
+source_file="res://bullets/assets/diamond_bullet.png"
+dest_files=["res://.godot/imported/diamond_bullet.png-bd9ec2e60826bc11f3557845e3d10f69.ctex"]
 
 [params]
 

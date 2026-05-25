@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwrucijnr6yws"
-path="res://.godot/imported/triangle_bullet.png-86d9e56251235f4910157292bb0b2026.ctex"
+path="res://.godot/imported/triangle_bullet.png-55873e34924d00b129f52ab15f0a5b72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bullets/triangle_bullet.png"
-dest_files=["res://.godot/imported/triangle_bullet.png-86d9e56251235f4910157292bb0b2026.ctex"]
+source_file="res://bullets/assets/triangle_bullet.png"
+dest_files=["res://.godot/imported/triangle_bullet.png-55873e34924d00b129f52ab15f0a5b72.ctex"]
 
 [params]
 

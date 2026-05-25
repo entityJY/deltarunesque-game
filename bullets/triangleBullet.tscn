@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clqljfl5j8vlw"]
 
 [ext_resource type="Script" uid="uid://da525eia0ajd8" path="res://bullets/projectile.gd" id="1_0ef34"]
-[ext_resource type="Texture2D" uid="uid://bwrucijnr6yws" path="res://bullets/triangle_bullet.png" id="2_0ef34"]
+[ext_resource type="Texture2D" uid="uid://bwrucijnr6yws" path="res://bullets/assets/triangle_bullet.png" id="2_0ef34"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
 radius = 77.52419

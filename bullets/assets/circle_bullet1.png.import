@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sox8p4tfku6"
-path="res://.godot/imported/6_pointed_star_bullet.png-e81a96f066561199f3a183b63d24eb1a.ctex"
+uid="uid://bnejhq5t5kr2c"
+path="res://.godot/imported/circle_bullet1.png-90e838618503740ea4a33190c385dc92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bullets/6_pointed_star_bullet.png"
-dest_files=["res://.godot/imported/6_pointed_star_bullet.png-e81a96f066561199f3a183b63d24eb1a.ctex"]
+source_file="res://bullets/assets/circle_bullet1.png"
+dest_files=["res://.godot/imported/circle_bullet1.png-90e838618503740ea4a33190c385dc92.ctex"]
 
 [params]
 

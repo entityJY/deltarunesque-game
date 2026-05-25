@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqhboklveaiuc"]
 
 [ext_resource type="Script" uid="uid://b7608swl4bd5t" path="res://bullets/arrowProj.gd" id="2_4bp3c"]
-[ext_resource type="Texture2D" uid="uid://dqucx8p2v81k0" path="res://bullets/arrow_bullet.png" id="2_5ssne"]
+[ext_resource type="Texture2D" uid="uid://dqucx8p2v81k0" path="res://bullets/assets/arrow_bullet.png" id="2_5ssne"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3kk6"]
 radius = 86.05

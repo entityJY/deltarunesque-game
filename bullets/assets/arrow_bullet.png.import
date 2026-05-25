@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buo8ami7dfepj"
-path="res://.godot/imported/diamond_bullet.png-bd067e5033301c54c09fb6bba1ab4e3a.ctex"
+uid="uid://dqucx8p2v81k0"
+path="res://.godot/imported/arrow_bullet.png-d4047d304a4eafdb03bf9a9a45c2a6e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bullets/diamond_bullet.png"
-dest_files=["res://.godot/imported/diamond_bullet.png-bd067e5033301c54c09fb6bba1ab4e3a.ctex"]
+source_file="res://bullets/assets/arrow_bullet.png"
+dest_files=["res://.godot/imported/arrow_bullet.png-d4047d304a4eafdb03bf9a9a45c2a6e3.ctex"]
 
 [params]
 
