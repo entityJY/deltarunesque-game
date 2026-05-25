@@ -13,9 +13,10 @@ extends Node2D
 
 @export var song_list : Array[AudioStreamPlayer]= []
 
-var loaded_song = {"current_song" : 0,
-"current_bpm" : 97,
-"beatmap": 
+var loaded_song = {
+	"current_song" : 0,
+	"current_bpm" : 97,
+	"beatmap": 
 	[{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
 	"bullets" : [load("res://bullets/reversalBullet.tscn")],
 	"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
