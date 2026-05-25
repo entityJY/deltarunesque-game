@@ -66,7 +66,6 @@ func stageSwap(stageSelect):
 		4: 
 			targetColor = Color.AQUA
 			nextPlayer = get_parent().get_node("Blue")
-			
 	if tween:
 		tween.kill()
 			
