@@ -64,7 +64,7 @@ func stageSwap(stageSelect):
 			nextPlayer = get_parent().get_node("Green")
 			
 		4: 
-			targetColor = Color.BLUE
+			targetColor = Color.AQUA
 			nextPlayer = get_parent().get_node("Blue")
 			
 	if tween:
@@ -99,10 +99,10 @@ func stageSwap(stageSelect):
 		#activeStage.global_position = global_position
 		#activeStage.player = player
 	
-	await get_tree().create_timer(fadeTime).timeout
+	#await get_tree().create_timer(fadeTime).timeout
+	#
+	#stopTrack(prevPlayer)
 	
-	stopTrack(prevPlayer)
-	
-func stopTrack(songPlayer):
-	songPlayer.stop()
-	swapping = false
+#func stopTrack(songPlayer):
+	#songPlayer.stop()
+	#swapping = false
