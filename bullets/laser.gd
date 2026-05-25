@@ -3,7 +3,7 @@ class_name Laser
 
 var cooldown = false
 @export var warningTime : float = 3
-@export var flashTime : float= 0.1
+@export var flashTime : float = 0.1
 @export var damage = 1
 @export var cooldown_timeout = 0.2
 @export var laser_duration : float = 10
@@ -15,6 +15,8 @@ var warningTween : Tween = null
 var enabled = false
 
 func _ready() -> void:
+	if flashTime <= 0:
+		flashTime = .1
 	if warningTime > 0:
 		$CollisionShape2D.set_deferred("disabled", true)
 		warningAnimation()
