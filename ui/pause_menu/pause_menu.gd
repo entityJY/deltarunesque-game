@@ -1,13 +1,14 @@
-extends PanelContainer
+extends CanvasLayer
 class_name PauseMenu
 
 
-@export_file var play_scene: String
+@export_file var main_menu: String
 var paused: bool = false
 
 @export var animation_player: AnimationPlayer
 @export var settings_menu: SettingsMenu
 @export var menuMusic : AudioStreamPlayer2D
+@export var death_menu: DeathMenu
 
 var settings_menu_active: bool = false
 
@@ -15,6 +16,8 @@ func _ready() -> void:
 	settings_menu.close_settings_menu.connect(settings_closed)
 
 func _process(_delta: float) -> void:
+	if !death_menu == null and death_menu.menu_open:
+		return
 	if Input.is_action_just_pressed("pause"):
 		if settings_menu_active:
 			settings_menu.close_settings()
@@ -33,7 +36,7 @@ func _process(_delta: float) -> void:
 
 func _on_home_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file(play_scene)
+	get_tree().change_scene_to_file(main_menu)
 	menuMusic.stop()
 
 func _on_continue_pressed() -> void:

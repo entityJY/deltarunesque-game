@@ -1,4 +1,5 @@
 extends CanvasModulate
+class_name LevelColorSwitcher
 
 @export var tracks: Array[AudioStream] = []
 #@export var stages: = [null, preload("res://scenes/orange_scene.tscn"), null, null, null]
@@ -42,8 +43,9 @@ func _process(_delta: float) -> void:
 			#stageSwap();
 			#
 	pass
-	
-func stageSwap(stageSelect):
+
+## changes the color of the stage, 0: RED, 1: ORANGE, 2: YELLOW, 3: GREEN, 4: AQUA
+func stageSwap(stageSelect: int):
 	var targetColor
 	stage = stageSelect
 	match stage:

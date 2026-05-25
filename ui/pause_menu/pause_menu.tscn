@@ -144,10 +144,15 @@ _data = {
 &"open_settings": SubResource("Animation_lhp7q")
 }
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=1846227727]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1846227727 node_paths=PackedStringArray("animation_player", "settings_menu", "menuMusic")]
 process_mode = 3
+script = ExtResource("1_mnjdh")
+main_menu = "uid://b7cldscw5umdk"
+animation_player = NodePath("AnimationPlayer")
+settings_menu = NodePath("SettingsPanel")
+menuMusic = NodePath("AudioStreamPlayer2D")
 
-[node name="PauseMenu" type="PanelContainer" parent="." unique_id=1300781280 node_paths=PackedStringArray("animation_player", "settings_menu", "menuMusic")]
+[node name="PauseMenu" type="PanelContainer" parent="." unique_id=1300781280]
 z_index = 1
 custom_minimum_size = Vector2(640, 360)
 anchors_preset = 8
@@ -162,11 +167,6 @@ offset_bottom = -680.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_le02u")
-script = ExtResource("1_mnjdh")
-play_scene = "uid://b7cldscw5umdk"
-animation_player = NodePath("../AnimationPlayer")
-settings_menu = NodePath("../SettingsPanel")
-menuMusic = NodePath("../AudioStreamPlayer2D")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu" unique_id=506577662]
 layout_mode = 2
@@ -230,6 +230,6 @@ libraries/ = SubResource("AnimationLibrary_j11rl")
 stream = ExtResource("13_j11rl")
 bus = &"Music"
 
-[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer/Home" to="PauseMenu" method="_on_home_pressed"]
-[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer2/Continue" to="PauseMenu" method="_on_continue_pressed"]
-[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer3/Settings" to="PauseMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer2/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer3/Settings" to="." method="_on_settings_pressed"]

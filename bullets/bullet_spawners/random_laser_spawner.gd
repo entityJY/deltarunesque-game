@@ -46,8 +46,9 @@ func start_spawning():
 		new_laser.scale.y = 1920*3
 		new_laser.global_rotation = 1
 		new_laser.position = Vector2(randf_range(-480, 480), randf_range(-270, 270))
+
 		var direction_to_player: Vector2 = (new_laser.position - player.position)
-		new_laser.rotation = new_laser.position.angle_to(direction_to_player) + PI/4
+		new_laser.rotation = Vector2(1, 0).angle_to(direction_to_player) + PI/2
 
 		get_parent().add_child(new_laser)
 		await get_tree().create_timer(beats_per_bullet * beat_duration).timeout

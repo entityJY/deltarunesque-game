@@ -29,9 +29,11 @@ size = Vector2(14.999908, 1991)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64w2a"]
 size = Vector2(33, 1266)
 
-[node name="Level" type="Node2D" unique_id=2140894002 node_paths=PackedStringArray("song_list")]
+[node name="Level" type="Node2D" unique_id=2140894002 node_paths=PackedStringArray("player", "song_list", "canvas_modulate")]
 script = ExtResource("1_rvm1m")
+player = NodePath("Player")
 song_list = [NodePath("Red"), NodePath("Orange"), NodePath("Yellow"), NodePath("Green"), NodePath("Blue")]
+canvas_modulate = NodePath("CanvasModulate")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1548270492]
 script = ExtResource("2_xr8nh")
@@ -136,11 +138,8 @@ shape = SubResource("RectangleShape2D_64w2a")
 
 [node name="Player" parent="." unique_id=1841742184 instance=ExtResource("9_u1gf1")]
 
-[node name="AudioPlayer1" type="AudioStreamPlayer2D" parent="." unique_id=890367423]
-
-[node name="AudioPlayer2" type="AudioStreamPlayer2D" parent="." unique_id=630785168]
-
-[node name="PauseMenu" parent="." unique_id=1300781280 instance=ExtResource("10_axkgw")]
+[node name="PauseMenu" parent="." unique_id=1300781280 node_paths=PackedStringArray("death_menu") instance=ExtResource("10_axkgw")]
+death_menu = NodePath("../DeathMenu")
 
 [node name="DeathMenu" parent="." unique_id=1687582225 instance=ExtResource("11_pvm0q")]
 
