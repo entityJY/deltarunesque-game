@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://buhxlc4j0yo1l"]
+
+[ext_resource type="Script" uid="uid://07dfmmum823g" path="res://bullets/bullet_spawners/random_laser_spawner.gd" id="1_aaew5"]
+[ext_resource type="PackedScene" uid="uid://dmrvmvs4gvn4a" path="res://bullets/laser.tscn" id="2_lltjs"]
+
+[node name="LaserSpawner" type="Marker2D" unique_id=1384078757]
+script = ExtResource("1_aaew5")
+laser = ExtResource("2_lltjs")
+beats_per_bullet = 4.0
+firing_time = 4.0
+warning_time = 0.4
+cooldown_timeout = 0.1
+laser_duration = 0.1
+bpm = 150.0

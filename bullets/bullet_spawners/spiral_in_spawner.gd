@@ -40,6 +40,7 @@ func _ready() -> void:
 func start_spawning():
 	var spawn_position = Vector2(spawn_radius, 0)
 	spawn_position = spawn_position.rotated(initial_rad)
+	running_timer()
 	while running:
 		var new_bullet: Projectile = bullet.instantiate()
 		new_bullet.speed = bullet_speed
