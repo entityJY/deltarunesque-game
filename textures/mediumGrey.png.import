@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvp6cysr254l2"
 path.s3tc="res://.godot/imported/mediumGrey.png-4d310d81fa84e6c7999cf1cea8e0a72e.s3tc.ctex"
+path.etc2="res://.godot/imported/mediumGrey.png-4d310d81fa84e6c7999cf1cea8e0a72e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/mediumGrey.png"
-dest_files=["res://.godot/imported/mediumGrey.png-4d310d81fa84e6c7999cf1cea8e0a72e.s3tc.ctex"]
+dest_files=["res://.godot/imported/mediumGrey.png-4d310d81fa84e6c7999cf1cea8e0a72e.s3tc.ctex", "res://.godot/imported/mediumGrey.png-4d310d81fa84e6c7999cf1cea8e0a72e.etc2.ctex"]
 
 [params]
 

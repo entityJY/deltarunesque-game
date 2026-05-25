@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0g52mq41tsag"
 path.s3tc="res://.godot/imported/lightGrey.png-e23cf06eb0b1e78576291cb05407106c.s3tc.ctex"
+path.etc2="res://.godot/imported/lightGrey.png-e23cf06eb0b1e78576291cb05407106c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/lightGrey.png"
-dest_files=["res://.godot/imported/lightGrey.png-e23cf06eb0b1e78576291cb05407106c.s3tc.ctex"]
+dest_files=["res://.godot/imported/lightGrey.png-e23cf06eb0b1e78576291cb05407106c.s3tc.ctex", "res://.godot/imported/lightGrey.png-e23cf06eb0b1e78576291cb05407106c.etc2.ctex"]
 
 [params]
 
