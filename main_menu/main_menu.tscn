@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1uei46k34nr" path="res://main_menu/main_menu.gd" id="1_oa53l"]
 [ext_resource type="Texture2D" uid="uid://ccc23551gfeci" path="res://main_menu/main_menu_assets/play_normal.png" id="2_3f7m4"]
 [ext_resource type="Texture2D" uid="uid://clthxf52fq4qe" path="res://main_menu/main_menu_assets/credits_box.png" id="2_3shxk"]
+[ext_resource type="Texture2D" uid="uid://m58wlm0fh7m5" path="res://main_menu/main_menu_assets/title_screen_bg.png" id="2_kwfav"]
 [ext_resource type="Texture2D" uid="uid://cbkn312di4u66" path="res://main_menu/main_menu_assets/play_pressed.png" id="3_6tl50"]
 [ext_resource type="Texture2D" uid="uid://bcidosgle7omm" path="res://main_menu/main_menu_assets/play_hover.png" id="4_6tl50"]
 [ext_resource type="Texture2D" uid="uid://cqd58uorqvv0b" path="res://main_menu/main_menu_assets/settings_normal.png" id="5_6at21"]
@@ -13,9 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://5jmfh7ortwyr" path="res://main_menu/main_menu_assets/credits_hover.png" id="10_qvn4f"]
 [ext_resource type="PackedScene" uid="uid://7yafxd8dxjin" path="res://ui/settings_menu/settings_menu.tscn" id="12_qvn4f"]
 [ext_resource type="AudioStream" uid="uid://c13vvrca7344i" path="res://tracks/Menu.ogg" id="13_g1omr"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1h4yd"]
-size = Vector2(1920, 1080)
+[ext_resource type="FontFile" uid="uid://r507b73r1sd4" path="res://main_menu/main_menu_assets/StrichpunktSans-Regular.ttf" id="13_tr6y3"]
+[ext_resource type="AudioStream" uid="uid://clgxwnqgodyse" path="res://ui/tap.wav" id="14_n70vs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6bnd"]
 texture = ExtResource("2_3f7m4")
@@ -159,16 +159,22 @@ _data = {
 &"open_settings": SubResource("Animation_3f7m4")
 }
 
-[node name="MainMenu" type="CanvasLayer" unique_id=1858030202 node_paths=PackedStringArray("animation_player", "escape_menu_button", "settings_menu", "menuMusic")]
+[node name="MainMenu" type="CanvasLayer" unique_id=1858030202 node_paths=PackedStringArray("animation_player", "escape_menu_button", "settings_menu", "menuMusic", "buttonSfx")]
 script = ExtResource("1_oa53l")
 play_scene = "uid://c2hdpjmhgqbgd"
 animation_player = NodePath("AnimationPlayer")
 escape_menu_button = NodePath("EscapeMenuButton")
 settings_menu = NodePath("SettingsPanel")
 menuMusic = NodePath("AudioStreamPlayer2D")
+buttonSfx = NodePath("ButtonSFX")
 
 [node name="Sprite2D" type="TextureRect" parent="." unique_id=1032657827]
-texture = SubResource("PlaceholderTexture2D_1h4yd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kwfav")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=741881226]
 custom_minimum_size = Vector2(229, 707)
@@ -264,15 +270,23 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_bws42")
 
 [node name="MarginContainer" type="MarginContainer" parent="CreditsPanel" unique_id=1916465538]
 layout_mode = 2
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 48
 
 [node name="Label" type="Label" parent="CreditsPanel/MarginContainer" unique_id=1845833384]
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
-text = "                     Credits
-                        blah"
+theme_override_colors/font_color = Color(0.1494745, 0.14947453, 0.1494745, 1)
+theme_override_fonts/font = ExtResource("13_tr6y3")
+theme_override_font_sizes/font_size = 50
+text = "Made in Godot by:
+Joshua Y., John P. Freeman, Jacob, Dylan, Aaron, Andrea
+
+Font used: Strichpunkt Sans from Google Fonts"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="SettingsPanel" parent="." unique_id=25184077 node_paths=PackedStringArray("button_sfx", "animation_player") instance=ExtResource("12_qvn4f")]
 offset_left = -798.0
@@ -283,6 +297,7 @@ button_sfx = NodePath("../ButtonSFX")
 animation_player = NodePath("../AnimationPlayer")
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=44312867]
+stream = ExtResource("14_n70vs")
 bus = &"UI"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1571806585]

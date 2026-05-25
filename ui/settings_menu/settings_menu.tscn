@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://1i0ws5q2kk87" path="res://ui/settings_menu/settings.gd" id="1_jwxja"]
 [ext_resource type="Texture2D" uid="uid://b2q3lqxbek7q4" path="res://ui/settings_menu/settings_menu_assets/settings_box.png" id="2_0hqsx"]
 [ext_resource type="Texture2D" uid="uid://7okekwknedx4" path="res://ui/settings_menu/settings_menu_assets/slider/grabber/slider_grabber_normal.png" id="3_fa6c1"]
+[ext_resource type="FontFile" uid="uid://r507b73r1sd4" path="res://main_menu/main_menu_assets/StrichpunktSans-Regular.ttf" id="3_nluif"]
 [ext_resource type="Texture2D" uid="uid://djp8jjw7080m" path="res://ui/settings_menu/settings_menu_assets/slider/grabber/slider_grabber_hover.png" id="4_bko1y"]
 [ext_resource type="Texture2D" uid="uid://t8jm0bcw8qdn" path="res://ui/settings_menu/settings_menu_assets/slider/slider_area/slider_area_unfilled.png" id="5_6dam2"]
 [ext_resource type="Texture2D" uid="uid://ce24lqswx5qvf" path="res://ui/settings_menu/settings_menu_assets/slider/slider_area/slider_area_fill.png" id="6_odsla"]
@@ -81,9 +82,9 @@ stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1623837506]
 layout_mode = 2
-theme_override_constants/margin_left = 48
+theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
+theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 48
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1238944539]
@@ -95,6 +96,7 @@ layout_mode = 2
 
 [node name="Master" type="Label" parent="MarginContainer/VBoxContainer" unique_id=596945852]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nluif")
 theme_override_font_sizes/font_size = 48
 text = "Master Volume"
 
@@ -112,6 +114,7 @@ value = 0.5
 
 [node name="Music" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1070847923]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nluif")
 theme_override_font_sizes/font_size = 48
 text = "Music"
 
@@ -129,6 +132,7 @@ value = 0.5
 
 [node name="SFX" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1514300218]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nluif")
 theme_override_font_sizes/font_size = 48
 text = "SFX"
 
@@ -146,6 +150,7 @@ value = 0.5
 
 [node name="UI" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1523090081]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_nluif")
 theme_override_font_sizes/font_size = 48
 text = "UI"
 

@@ -13,6 +13,7 @@ enum menus {
 @export var escape_menu_button: Button
 @export var settings_menu: SettingsMenu
 @export var menuMusic : AudioStreamPlayer2D
+@export var buttonSfx : AudioStreamPlayer
 var active_menus: Array[menus]
 
 
@@ -31,16 +32,22 @@ func _process(_delta: float) -> void:
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(play_scene)
 	menuMusic.stop()
+	#if buttonSfx:
+		#buttonSfx.play()
 
 func _on_settings_pressed() -> void:
 	escape_menu_button.show()
 	settings_menu.open_settings()
 	active_menus.append(menus.SETTINGS)
+	if buttonSfx:
+		buttonSfx.play()
 
 func _on_credits_pressed() -> void:
 	animation_player.play("open_credits")
 	active_menus.append(menus.CREDITS)
 	escape_menu_button.show()
+	if buttonSfx:
+		buttonSfx.play()
 
 func pop_menu() -> void:
 	var popped_menu = active_menus.pop_back()

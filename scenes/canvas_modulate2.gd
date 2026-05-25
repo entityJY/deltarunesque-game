@@ -13,8 +13,8 @@ var isCurrPlayer1 : bool = true
 var swapping : bool = false
 var activeStage = null
 
-signal old_track_ended
-signal new_track_started
+#signal old_track_ended
+#signal new_track_started
 
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:	
@@ -80,7 +80,7 @@ func stageSwap(stageSelect):
 	#nextPlayer.stream = tracks[stage]
 	nextPlayer.volume_db = fadeDB
 	nextPlayer.play()
-	new_track_started.emit()
+	#new_track_started.emit()
 	
 	var audioIn = create_tween()
 	

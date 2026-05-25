@@ -14,13 +14,13 @@ class_name SettingsMenu
 @export var animation_player: AnimationPlayer
 
 var settings_tween : Tween
+var silence = true
 
 signal close_settings_menu()
 
 
 func _ready() -> void:
 	load_config()
-	update()
 	self.position.y = -1140
 
 ## Closes settings menu
@@ -43,22 +43,26 @@ func open_settings() -> void:
 ## Changes master volume.
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(master, linear_to_db(value))
-	button_sfx.play()
+	if !silence:
+		button_sfx.play()
 
 ## Changes music volume.
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music, linear_to_db(value))
-	button_sfx.play()
+	if !silence:
+		button_sfx.play()
 
 ## Changes SFX volume.
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sfx, linear_to_db(value))
-	button_sfx.play()
+	if !silence:
+		button_sfx.play()
 
 ## Changes UI Volume
 func _on_ui_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(ui, linear_to_db(value))
-	button_sfx.play()
+	if !silence:
+		button_sfx.play()
 
 
 ## Updates volume sliders
@@ -67,6 +71,7 @@ func update():
 	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(music))
 	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx))
 	ui_slider.value = db_to_linear(AudioServer.get_bus_volume_db(ui))
+	silence = false
 
 ## Save user settings.
 func save_config():
@@ -100,5 +105,6 @@ func load_config():
 
 
 func _on_close_button_pressed() -> void:
-	button_sfx.play()
+	if !silence:
+		button_sfx.play()
 	close_settings()
