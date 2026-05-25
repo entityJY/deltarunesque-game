@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dmbkika2j0lck" path="res://tracks/Red.ogg" id="10_sbqk0"]
 [ext_resource type="PackedScene" uid="uid://bc1c0251c5302" path="res://ui/death_menu/death_menu.tscn" id="11_pvm0q"]
 [ext_resource type="AudioStream" uid="uid://d32qr3gbvuket" path="res://tracks/Green.ogg" id="12_rvm1m"]
+[ext_resource type="PackedScene" uid="uid://cae55xn8o3hn6" path="res://ui/score/score.tscn" id="13_w1jp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3vj"]
 size = Vector2(20, 750)
@@ -37,6 +38,8 @@ script = ExtResource("2_xr8nh")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=465149635]
 modulate = Color(0.22130162, 0.22130162, 0.22130159, 1)
+position = Vector2(-2, 2)
+scale = Vector2(3, 3)
 texture = ExtResource("7_kblrs")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=590509863]
@@ -156,5 +159,8 @@ stream = ExtResource("4_mx4yg")
 [node name="Green" type="AudioStreamPlayer" parent="." unique_id=971070738]
 stream = ExtResource("12_rvm1m")
 bus = &"Music"
+
+[node name="Score" parent="." unique_id=1720828468 node_paths=PackedStringArray("player") instance=ExtResource("13_w1jp3")]
+player = NodePath("../Player")
 
 [connection signal="player_killed" from="Player" to="DeathMenu" method="_on_player_player_killed"]

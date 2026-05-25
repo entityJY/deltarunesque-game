@@ -13,7 +13,6 @@ var settings_menu_active: bool = false
 
 func _ready() -> void:
 	settings_menu.close_settings_menu.connect(settings_closed)
-	menuMusic.play()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -26,7 +25,9 @@ func _process(_delta: float) -> void:
 		if paused:
 			get_tree().paused = true
 			animation_player.play("open_pause")
+			menuMusic.play()
 		else:
+			menuMusic.stop()
 			animation_player.play("close_pause")
 			get_tree().paused = false
 

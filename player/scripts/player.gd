@@ -56,8 +56,6 @@ func _ready() -> void:
 	set_shield_level(shield_level)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		shield_level -= 1
 
 	for area in grazing_bullets.keys():
 		if !is_instance_valid(area):			# May need to remake dictionary every time, but hopefully not

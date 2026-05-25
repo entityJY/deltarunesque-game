@@ -31,7 +31,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 0,
 			},
@@ -50,7 +50,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 4,
 			},
@@ -69,7 +69,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 8,
 			},
@@ -88,7 +88,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 12,
 			},
@@ -107,7 +107,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 16,
 			},
@@ -126,7 +126,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 20,
 			},
@@ -145,7 +145,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 24,
 			},
@@ -164,7 +164,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 28,
 			},
@@ -183,7 +183,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 32,
 			},
@@ -202,7 +202,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 36,
 			},
@@ -221,7 +221,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 40,
 			},
@@ -240,7 +240,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 44,
 			},
@@ -259,7 +259,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 48,
 			},
@@ -278,7 +278,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 52,
 			},
@@ -297,7 +297,7 @@ var song_maps = [
 				"beats_per_bullet": .25,
 				"firing_time": 4,
 				"bullet_speed": 400,
-				"bpm": current_bpm,
+				"bpm": 150,
 				"position": Vector2(1920.0/2, 1080.0/2),
 				"time" : 56,
 			},
@@ -1471,74 +1471,13 @@ func initialize_song():
 		# Setting note parameters
 		var current_settings : Dictionary = beatmap[i]
 		
-		if current_settings.has("spawnTimeout"):
-			note_instance.spawnTimeout = current_settings["spawnTimeout"]
-			
-		if current_settings.has("waveCount"):
-			note_instance.waveCount = current_settings["waveCount"]
-		
-		if current_settings.has("rotational"):
-			note_instance.rotational = current_settings["rotational"]
-		
-		if current_settings.has("rotation"):
-			note_instance.rotation = current_settings["rotation"]
-		
-		if current_settings.has("spawnRange"):
-			note_instance.spawnRange = current_settings["spawnRange"]
-		
-		if current_settings.has("rotationRange"):
-			note_instance.rotationRange = current_settings["rotationRange"]
-		
-		if current_settings.has("panEnabled"):
-			note_instance.panEnabled = current_settings["panEnabled"]
-		
-		if current_settings.has("maxSpawned"):
-			note_instance.maxSpawned = current_settings["maxSpawned"]
-			
-		if current_settings.has("spawnDuration"):
-			note_instance.spawnDuration = current_settings["spawnDuration"]
-		
-		if current_settings.has("playerChar") and player:
-			note_instance.playerChar = player
-		
-		if current_settings.has("player") and player:
-			note_instance.player = player
-		
-		if current_settings.has("manualMode"):
-			note_instance.manualMode = current_settings["manualMode"]
-
-		if current_settings.has("lineRange"):
-			note_instance.lineRange = current_settings["lineRange"]
-			
-		if current_settings.has("bullets"):
-			note_instance.bullets = current_settings["bullets"]
-			
-		if current_settings.has("bulletInitSettings"):
-			note_instance.bulletInitSettings = current_settings["bulletInitSettings"]
-			
-		if current_settings.has("baseSpeed"):
-			note_instance.baseSpeed = current_settings["baseSpeed"]
-		
-		if current_settings.has("dir"):
-			note_instance.dir = current_settings["dir"]
-		
-		if current_settings.has("rotDir"):
-			note_instance.rotDir = current_settings["rotDir"]
-		
-		if current_settings.has("accDir"):
-			note_instance.accDir = current_settings["accDir"]
-		
-		if current_settings.has("baseAcceleration"):
-			note_instance.baseAcceleration = current_settings["baseAcceleration"]
-		
-		if current_settings.has("speedValues"):
-			note_instance.speedValues = current_settings["speedValues"]
-		
-		if current_settings.has("bulletScale"):
-			note_instance.bulletScale = current_settings["bulletScale"]
-		
-		if current_settings.has("cycleValues"):
-			note_instance.cycleValues = current_settings["cycleValues"]
+		for property in current_settings.keys():
+			if property == "player":
+				note_instance.set(property, player)
+				continue
+			if property == "playerChar":
+				note_instance.set(property, player)
+			note_instance.set(property, current_settings[property])
 		
 		note_instance.global_position = current_settings["position"]
 		add_child.call_deferred(note_instance)

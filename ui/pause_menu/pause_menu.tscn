@@ -147,7 +147,7 @@ _data = {
 [node name="PauseMenu" type="CanvasLayer" unique_id=1846227727]
 process_mode = 3
 
-[node name="PauseMenu" type="PanelContainer" parent="." unique_id=1300781280 node_paths=PackedStringArray("animation_player", "settings_menu")]
+[node name="PauseMenu" type="PanelContainer" parent="." unique_id=1300781280 node_paths=PackedStringArray("animation_player", "settings_menu", "menuMusic")]
 z_index = 1
 custom_minimum_size = Vector2(640, 360)
 anchors_preset = 8
@@ -166,6 +166,7 @@ script = ExtResource("1_mnjdh")
 play_scene = "uid://b7cldscw5umdk"
 animation_player = NodePath("../AnimationPlayer")
 settings_menu = NodePath("../SettingsPanel")
+menuMusic = NodePath("../AudioStreamPlayer2D")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu" unique_id=506577662]
 layout_mode = 2
@@ -227,6 +228,7 @@ libraries/ = SubResource("AnimationLibrary_j11rl")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=853764964]
 stream = ExtResource("13_j11rl")
+bus = &"Music"
 
 [connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer/Home" to="PauseMenu" method="_on_home_pressed"]
 [connection signal="pressed" from="PauseMenu/HBoxContainer/CenterContainer2/Continue" to="PauseMenu" method="_on_continue_pressed"]
