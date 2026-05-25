@@ -7,11 +7,13 @@ var paused: bool = false
 
 @export var animation_player: AnimationPlayer
 @export var settings_menu: SettingsMenu
+@export var menuMusic : AudioStreamPlayer2D
 
 var settings_menu_active: bool = false
 
 func _ready() -> void:
 	settings_menu.close_settings_menu.connect(settings_closed)
+	menuMusic.play()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -31,11 +33,13 @@ func _process(_delta: float) -> void:
 func _on_home_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file(play_scene)
+	menuMusic.stop()
 
 func _on_continue_pressed() -> void:
 	paused = false
 	animation_player.play("close_pause")
 	get_tree().paused = false
+	menuMusic.stop()
 
 func _on_settings_pressed() -> void:
 	settings_menu.open_settings()

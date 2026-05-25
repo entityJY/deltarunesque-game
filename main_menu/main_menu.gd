@@ -12,12 +12,14 @@ enum menus {
 @export var animation_player: AnimationPlayer
 @export var escape_menu_button: Button
 @export var settings_menu: SettingsMenu
+@export var menuMusic : AudioStreamPlayer2D
 var active_menus: Array[menus]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	settings_menu.close_settings_menu.connect(settings_closed)
+	menuMusic.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,6 +30,7 @@ func _process(_delta: float) -> void:
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file(play_scene)
+	menuMusic.stop()
 
 func _on_settings_pressed() -> void:
 	escape_menu_button.show()
