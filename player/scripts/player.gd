@@ -22,7 +22,6 @@ enum dash_states {
 @export var dash_distance: float = 300.0
 @export var dash_time: float = 0.15
 @export var dash_cooldown: float = 0.4
-@export var hit: AudioStreamPlayer2D
 
 var dash_speed: float
 var dash_timer: Timer
@@ -35,6 +34,7 @@ var dash_state: dash_states = dash_states.DASH_AVAILABLE
 @export var collision_shape: CollisionShape2D
 @export var shield_sprite_array: Array[Sprite2D]
 @export var death_sprite: Sprite2D
+@export var hit: AudioStreamPlayer2D
 
 var shield_level: int = 4: set = set_shield_level
 
@@ -43,6 +43,8 @@ var points: int = 0
 var grazing_bullets: Dictionary[Area2D, float] = {}
 
 var hitbox_disabled = false
+
+var player_alive: bool = true
 
 signal player_killed(score: int)
 
@@ -68,6 +70,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func hurt(damage: int) -> void:
+	if !player_alive or hitbox_disabled:
+		return
 	if damage > 0:
 		damage *= -1
 	shield_level += damage
@@ -113,6 +117,7 @@ func set_shield_level(level: int) -> void:
 	disable_hitbox()
 	if level < 0:
 		player_killed.emit(points)
+		player_alive = false
 		death_sprite.visible = true
 		for i in range(5):
 			shield_sprite_array[i].visible = false
@@ -136,14 +141,15 @@ func set_shield_level(level: int) -> void:
 
 
 func _on_outer_hitbox_area_entered(area: Area2D) -> void:
-	if hitbox_disabled:
+	if hitbox_disabled or !player_alive:
 		return
 	if (area is Projectile or area is Laser):
 		grazing_bullets[area] = 0.0
 
 func _on_outer_hitbox_area_exited(area: Area2D) -> void:
 	if (area is Projectile or area is Laser) and grazing_bullets.has(area):
-		points += int(grazing_bullets[area] * 100)			# 100 points per second spent grazing
+		if player_alive:
+			points += int(grazing_bullets[area] * 100)			# 100 points per second spent grazing
 		grazing_bullets.erase(area)
 
 func disable_hitbox() -> void:

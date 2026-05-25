@@ -1436,15 +1436,12 @@ func _ready() -> void:
 	
 	
 func get_next_song():
-	print("starting a song")
 	if stages_played % len(songChoices) == 0:
 		songChoices.shuffle()
 	var currentStage = songChoices[stages_played % len(songChoices)]
-	print(currentStage)
 	$CanvasModulate.stageSwap(currentStage)
 	load_song(song_maps[currentStage])
 	await song_list[currentStage].finished
-	print("it done")
 	
 
 func load_song(song_data):
@@ -1509,7 +1506,4 @@ func _process(_delta: float) -> void:
 			current_notes[current_note].start_spawning()
 			current_note += 1
 			if current_note >= len(beatmap):
-				print("no notes left")
-				print(current_note)
-				print(len(beatmap))
 				return

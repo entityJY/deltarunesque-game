@@ -39,7 +39,6 @@ func _ready() -> void:
 		start_spawning()
 
 func start_spawning():
-	print("HI, I'm node: " + self.name)
 	var spawn_position = Vector2(spawn_radius, 0)
 	spawn_position = spawn_position.rotated(initial_rad)
 	running_timer()
@@ -55,7 +54,5 @@ func start_spawning():
 
 
 func running_timer() -> void:
-	print("Start timer")
 	await get_tree().create_timer(firing_time * beat_duration).timeout
-	print("end timer")
 	running = false
