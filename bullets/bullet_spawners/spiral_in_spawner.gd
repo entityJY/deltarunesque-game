@@ -1,4 +1,4 @@
-extends Marker2D
+extends BasicSpawner
 class_name SpiralSpawner
 
 

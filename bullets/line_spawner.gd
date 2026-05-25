@@ -1,4 +1,4 @@
-extends Marker2D
+extends BasicSpawner
 
 ## Timeout between waves
 @export var spawnTimeout : float = 5

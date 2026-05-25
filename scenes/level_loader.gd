@@ -1194,6 +1194,8 @@ func get_next_song():
 	
 
 func load_song(song_data: Dictionary):
+	if stages_played % len(songChoices) == 0:	# check if player has played through all the levels
+		songChoices.shuffle()
 	current_note = 0
 	current_notes.clear()
 	if song_data["current_song"] >= len(song_list):
@@ -1243,8 +1245,6 @@ func initialize_song():
 	current_notes = []
 
 	stages_played += 1
-	if stages_played % len(songChoices) == 0:	# check if player has played through all the levels
-		songChoices.shuffle()
 	get_next_song()
 
 func _process(_delta: float) -> void:

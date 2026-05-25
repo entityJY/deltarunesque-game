@@ -1,4 +1,5 @@
-extends Marker2D
+extends BasicSpawner
+class_name RandomHorizontalLaserSpawner
 
 
 ## whether bullets fire on ready for debugging
