@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbstshog88n55"]
 
-[ext_resource type="Script" uid="uid://cn0u6bti7bxlg" path="res://bullets/line_spawner.gd" id="1_p0w3f"]
+[ext_resource type="Script" uid="uid://cn0u6bti7bxlg" path="res://bullets/bullet_spawners/line_spawner.gd" id="1_p0w3f"]
 
 [node name="Marker2D" type="Marker2D" unique_id=52519806]
 script = ExtResource("1_p0w3f")

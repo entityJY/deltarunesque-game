@@ -1,13 +1,10 @@
 extends BasicSpawner
+class_name lineSpawner
 
-## Timeout between waves
-@export var spawnTimeout : float = 5
 ## Number of bullets to spawn in one wave
 @export var waveCount : int = 5
 ## Max number of bullets that can be spawned by this spawner
 @export var maxSpawned = 0
-## How long to spawn bullets for
-@export var spawnDuration = 10
 ## List of bullets to spawn, cycles through
 @export var bullets = [preload("res://bullets/reversalBullet.tscn")]
 ## Specific settings for bullets
@@ -49,24 +46,10 @@ func bullet_init_settings(bullet_index : int, wave_index : int):
 	get_parent().add_child(newBullet)
 	spawned_number += 1
 
-func start_spawning():
-	# if spawnDuration is greater than 0:
-	# set timer to delete this spawner after some time
-	if spawnDuration > 0:
-		spawn_duration_checker()
-	# if maxSpawned == 0:
-	# spawn infinitely
-	if maxSpawned == 0:
-		maxSpawned = INF
-	# We can also restrict the number of things spawned by this spanwer
-	while spawned_number < maxSpawned:
-		# We can spawn multiple bullets at once in a wave
-		for nBullet in range(0, waveCount):
-			bullet_init_settings(spawned_number % len(bullets), nBullet)
-		spawned_waves += 1
-		await get_tree().create_timer(spawnTimeout).timeout
-	queue_free()
-
-func spawn_duration_checker():
-	await get_tree().create_timer(spawnDuration).timeout
-	queue_free()
+func spawn_projectile():
+	if maxSpawned != 0 and spawned_number > maxSpawned:
+		queue_free()
+		return
+	for nBullet in range(0, waveCount):
+		bullet_init_settings(spawned_number % len(bullets), nBullet)
+	spawned_waves += 1

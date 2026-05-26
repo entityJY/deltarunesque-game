@@ -15,17 +15,11 @@ class_name SpiralSpawner
 @export var rotates_clockwise: bool
 ## initial radians to start spawning bullets from
 @export var initial_rad: float
-## beats between each bullet firing
-@export var beats_per_bullet: float
-## how many beats the spawner runs for
-@export var firing_time: float
 ## speed of each bullet
 @export var bullet_speed: float
 ## radius of each bullet
 @export var bullet_radius: float
 
-var spawning_enabled: bool = false
-var next_bullet_spawn: float
 var spawn_position: Vector2
 
 func _ready() -> void:
@@ -40,21 +34,13 @@ func start_spawning():
 	spawn_position = Vector2(spawn_radius, 0)
 	spawn_position = spawn_position.rotated(initial_rad)
 
-func _process(_delta: float) -> void:
-	if !spawning_enabled: return
+func spawn_projectile():
+	var new_bullet: Projectile = bullet.instantiate()
+	new_bullet.speed = bullet_speed
+	new_bullet.direction = (Vector2.ZERO - spawn_position).normalized()
+	new_bullet.scale = Vector2(bullet_radius/325, bullet_radius/325)
+	new_bullet.position = spawn_position
 
-	var song_beat = (audio_stream.get_playback_position() + AudioServer.get_time_since_last_mix()) * bpm / 60.0 - time
-	if song_beat > firing_time:
-		queue_free()
-	
-	if song_beat > next_bullet_spawn:
-		var new_bullet: Projectile = bullet.instantiate()
-		new_bullet.speed = bullet_speed
-		new_bullet.direction = (Vector2.ZERO - spawn_position).normalized()
-		new_bullet.scale = Vector2(bullet_radius/325, bullet_radius/325)
-		new_bullet.position = spawn_position
+	get_parent().add_child(new_bullet)
 
-		get_parent().add_child(new_bullet)
-
-		spawn_position = spawn_position.rotated(rad_between_bullet)
-		next_bullet_spawn += beats_per_bullet
+	spawn_position = spawn_position.rotated(rad_between_bullet)
