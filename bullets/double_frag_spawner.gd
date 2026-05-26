@@ -5,7 +5,7 @@ extends Marker2D
 @export var max_spawned = 20
 @export var spawn_duration = 10
 var fragmentBullets = preload("res://bullets/fragment_bullet.tscn")
-@export var fragImage = preload("res://bullets/6_pointed_star_bullet.png")
+@export var fragImage = preload("res://bullets/assets/6_pointed_star_bullet.png")
 @export var internalFragment = preload("res://bullets/fragment_bullet.tscn")
 var spawned_number = 0
 

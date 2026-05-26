@@ -158,17 +158,19 @@ var song_maps = [
 				"lineRange" : Vector2(0, 900),
 				"baseSpeed" : 800,
 				"baseAcceleration" : -10,
-				"spawn_duration" : 34,
+				"spawn_duration" : 34.0 / 60 * 146,
 				"time" : 0
 			},
-			{"spawnerType": "res://bullets/bullet_spawners/line_spawner.tscn",
-			"beats_per_spawn" : 1.2 / 60 * 146,
-			"position" : Vector2(950, 86),
-			"lineRange" : Vector2(0, 900),
-			"baseSpeed" : -800,
-			"baseAcceleration" : 10,
-			"spawn_duration" : 34,
-			"time" : 8},
+			{
+				"spawnerType": "res://bullets/bullet_spawners/line_spawner.tscn",
+				"beats_per_spawn" : 1.2 / 60 * 146,
+				"position" : Vector2(950, 86),
+				"lineRange" : Vector2(0, 900),
+				"baseSpeed" : -800,
+				"baseAcceleration" : 10,
+				"spawn_duration" : 34.0 / 60 * 146,
+				"time" : 8
+			},
 			{"spawnerType": "res://bullets/spreadshot_spawner.tscn",
 			"spawnTimeout" : 2.4,
 			"position" : Vector2(-380, -380),
@@ -313,7 +315,7 @@ var song_maps = [
 		"current_song" : 2,
 		"current_bpm" : 160,
 		"beatmap": 
-			[{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			[{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"spawnTimeout" : .375,
 			"waveCount" : 1,
 			"position" : Vector2(0, 0),
@@ -324,7 +326,8 @@ var song_maps = [
 			"rotational" : 90,
 			"time" : 0}, 
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{
+				"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/arrow_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 600}],
 			"spawnTimeout" : 6,
@@ -339,7 +342,7 @@ var song_maps = [
 			#"manualMode" : true,
 			"time" : 10}, 
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/frag_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 800}],
 			"spawnTimeout" : .75,
@@ -352,7 +355,7 @@ var song_maps = [
 			"rotational" : 90,
 			"time" : 16},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/frag_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 800}],
 			"spawnTimeout" : .75,
@@ -365,7 +368,7 @@ var song_maps = [
 			"rotational" : 90,
 			"time" : 32},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/frag_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 800}],
 			"spawnTimeout" : .75,
@@ -378,7 +381,7 @@ var song_maps = [
 			"rotational" : 90,
 			"time" : 48},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/frag_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 800}],
 			"spawnTimeout" : .375,
@@ -391,7 +394,7 @@ var song_maps = [
 			"rotational" : 90,
 			"time" : 64},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/arrow_bullet.tscn"), load("res://bullets/arrow_bullet.tscn"), load("res://bullets/arrow_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200}, {"speed" : 1200}, {"speed" : 600}],
 			"spawnTimeout" : 3,
@@ -406,7 +409,7 @@ var song_maps = [
 			#"manualMode" : true,
 			"time" : 71},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/arrow_bullet.tscn"), load("res://bullets/arrow_bullet.tscn"), load("res://bullets/arrow_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200}, {"speed" : 1200}, {"speed" : 600}],
 			"spawnTimeout" : 3,
@@ -426,21 +429,23 @@ var song_maps = [
 	{
 		"current_song" : 3,
 		"current_bpm" : 97,
-		"beatmap": 
-			[{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
-			"bullets" : [load("res://bullets/reversalBullet.tscn")],
-			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
-			"spawnTimeout" : .6186,
-			"waveCount" : 1,
-			"position" : Vector2(0, 0),
-			"spawnDuration" : 1.5,
-			"playerChar" : "",
-			"sd" : 250,
-			"bulletScale" : Vector2(.07, .07),
-			"rotational" : 180,
-			"time" : 0},
+		"beatmap": [
+			{
+				"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
+				"bullets" : [load("res://bullets/reversalBullet.tscn")],
+				"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
+				"spawnTimeout" : .6186,
+				"waveCount" : 1,
+				"position" : Vector2(0, 0),
+				"spawnDuration" : 1.5,
+				"playerChar" : "",
+				"sd" : 250,
+				"bulletScale" : Vector2(.07, .07),
+				"rotational" : 180,
+				"time" : 0
+			},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -454,7 +459,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 3},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -467,7 +472,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 4},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -481,7 +486,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 7},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -494,7 +499,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 8},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -508,7 +513,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 11},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -521,7 +526,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 12},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -535,7 +540,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 15},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/frag_frag_bullet.tscn")],
 			"bulletInitSettings": [{"speed" : 200}],
 			"spawnTimeout" : 2.4742,
@@ -550,7 +555,7 @@ var song_maps = [
 			#"manualMode" : true,
 			"time" : 16},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -563,7 +568,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 16},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -577,7 +582,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 19},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -590,7 +595,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 20},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -604,7 +609,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 23},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -617,7 +622,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 24},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -631,7 +636,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 27},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -644,7 +649,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 28},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -658,7 +663,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 31},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -671,7 +676,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 32},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -685,7 +690,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 35},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -698,7 +703,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 36},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .3093,
@@ -712,7 +717,7 @@ var song_maps = [
 			"rotation" : PI,
 			"time" : 39},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -725,7 +730,7 @@ var song_maps = [
 			"rotational" : 180,
 			"time" : 40},
 			
-			{"spawnerType": "res://bullets/normal_dist_spawner.tscn",
+			{"spawnerType": "res://bullets/bullet_spawners/normal_dist_spawner.tscn",
 			"bullets" : [load("res://bullets/reversalBullet.tscn")],
 			"bulletInitSettings": [{"speed" : 1200, "acceleration" : -10}],
 			"spawnTimeout" : .6186,
@@ -1203,7 +1208,7 @@ func initialize_song():
 				continue
 			note_instance.set(property, note[property])
 		
-		if note_instance is BasicSpawner:
+		if note_instance is BasicSpawner or note_instance is BasicSpawnerTime:
 			note_instance.bpm = current_bpm
 			note_instance.audio_stream = current_song
 		
