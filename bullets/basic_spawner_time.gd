@@ -7,9 +7,9 @@ class_name BasicSpawnerTime
 @export var audio_stream: AudioStreamPlayer
 ## what beat the spawner starts firing
 @export var time: float
-## beats between each bullet firing
+## seconds between each bullet firing
 @export var spawnTimeout: float
-## how many beats the spawner runs for
+## how many seconds the spawner runs for
 @export var spawnDuration: float
 
 var spawning_enabled: bool = false
@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 		return
 	
 	if song_beat > next_spawn_time:
+		print("song beat: " + str(song_beat + time))
 		spawn_projectile()
 		next_spawn_time += spawnTimeout
 
