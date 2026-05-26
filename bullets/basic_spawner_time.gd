@@ -24,7 +24,7 @@ func start_spawning():
 func _process(_delta: float) -> void:
 	if !spawning_enabled: return
 
-	var song_beat = (audio_stream.get_playback_position() + AudioServer.get_time_since_last_mix()) * bpm / 60.0 - time
+	var song_beat = (audio_stream.get_playback_position() + AudioServer.get_time_since_last_mix()) * bpm / 60.0 - time + Constants.track_offset
 	if spawnDuration > 0 and song_beat > spawnDuration:
 		queue_free()
 		return

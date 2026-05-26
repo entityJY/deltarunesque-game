@@ -1261,8 +1261,7 @@ func _process(_delta: float) -> void:
 		if !is_instance_valid(current_notes[current_note]):
 			return
 		
-		var time = current_song.get_playback_position() + AudioServer.get_time_since_last_mix()
-		time -= AudioServer.get_output_latency()
+		var time = current_song.get_playback_position() + AudioServer.get_time_since_last_mix() + Constants.track_offset
 
 		var beat_duration = 60.0/current_bpm
 		
